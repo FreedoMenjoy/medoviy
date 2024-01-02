@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "fk": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "twilio": "^4.20.0"
+  }
+}

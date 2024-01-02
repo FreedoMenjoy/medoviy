@@ -194,57 +194,67 @@ body {
     }
 }
 
+
 .slider-container {
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 20%;
+    height: 70%;
     max-height: 70%;
     align-items: center;
-    overflow: hidden;
     margin: 0 auto; 
     margin-top: 80px;
+    overflow: hidden;
 }
 
-.slides{
-    animation: zoomIn 7s infinite ease-in-out;
+.slider {
+    position: relative;
 }
+
 
 @keyframes zoomIn {
     from {
         transform: scale(1);
     }
     to {
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
-}  
+} 
 
-.slide {
-    display: none;
-    width: 100%;
-    height: 4%;
+.slider ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-
-.button-container {
+ 
+.slider li {
     position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    transform: scale(1);
+}
+ 
+.slider li.active {
+    transform: scale(1);
+    animation: zoomIn 13.5s infinite ease-in-out;
+    opacity: 1;
 }
 
-.button {
-    margin-bottom: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    background-color: #ddd;
-    text-align: center;
+.slider li.inactive {
+    transform: scale(1.2);
 }
-
-.button.active {
-    background-color: #555;
+ 
+.slider .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
 }
 
 .responsive-image {
@@ -253,39 +263,108 @@ body {
     max-height: 80vh;
     display: block;
     margin: 0 auto;
-    animation: beTransparent 14s infinite ease-in-out;
-}     
+}    
 
-@keyframes beTransparent{
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
-    }
+.button-container {
+    position: absolute;
+    left: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 50%;
+    width: 7%;
+    height: 100%;
+    left: 0;
+    transition: 0.3s;
+    justify-content: center;
+    text-align: center;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.button .slider-text1 {
+    position: absolute;
+    color:white;
+    margin-top: -30px;
+    margin-left: 0;
+    transition: 0.3s;
+    visibility: hidden;
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+.button .slider-text2 {
+    position: absolute;
+    color:white;
+    margin-top: -30px;
+    margin-left: 0;
+    transition: 0.3s;
+    visibility: hidden;
+}
+
+.button-container:hover .slider-text1 {
+    position: absolute;
+    margin-left: 160px;
+    opacity: 1;
+    transition: 0.3s;
+    visibility: visible;
+}
+
+.button-container:hover .slider-text2 {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 160px;
+    opacity: 1;
+    transition: 0.3s;
+    visibility: visible;
+}
+
+.button.active .slider-text1 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.button.active .slider-text2 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.button {
+    padding: 10px;
+    border: none;
+    text-align: center;
+    font-size: 200%;
+    width: 100%;
+    background: none;
+    border-right: 4px solid #ebdc0a;
+    text-decoration: none;
+    padding: 10px 5px;
+    transition: all 0.3s;
+    cursor: pointer;
+    justify-content: center;
+    margin: 10px auto;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.button.active {
+    color: rgba(255, 255, 255, 0.5);
+    border-right: none;
 } 
+
+.button-container:hover {
+    width: 8%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    transition: 0.3s;
+}
 
 .container {
     display: flex;
-    margin-top: 150px;
+    margin-top: 900px;
+    margin: center;
+    position: relative;
+    justify-content:center;
+}
+
+.container1 {
+    display: flex;
+    margin-top: 100px;
     margin: center;
     position: relative;
     justify-content:center;
@@ -359,7 +438,6 @@ p {
     margin: 0 auto;
 }
 
-/* Базовые стили слоя затемнения и модального окна  */
 .overlay {
     top: 0;
     right: 0;
@@ -367,22 +445,23 @@ p {
     left: 0;
     z-index: 1;
     visibility: hidden;
-    /* фон затемнения */
     background-color: rgba(0, 0, 0, 0.7);
     opacity: 0;
-    position: fixed; /* фиксированное поцизионирование */
-    cursor: default; /* тип курсара */
+    position: fixed; 
+    cursor: default; 
     -webkit-transition: opacity .5s;
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
     -o-transition: opacity .5s;
     transition: opacity .5s;
-    }
-    .overlay:target {
+}
+
+.overlay:target {
     visibility: visible;
     opacity: 1;
     }
-    .is-image {
+
+.is-image {
     top: 0;
     right: 0;
     bottom: 0;
@@ -391,14 +470,12 @@ p {
     margin: 10%;
     width: 100%;
     height: auto;
-    /* скругление углов встроенных картинок */
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     border-radius: 4px;
-    }
-    /* встроенные элементы м-медиа, фреймы */
-    embed, iframe {
+}
+embed, iframe {
     top: 0;
     right: 0;
     bottom: 0; 
@@ -408,22 +485,16 @@ p {
     min-width: 320px;
     max-width: 600px;
     width: 100%;
-    }
-    .popup h1 { /* заголовок 1 */
-    color: #008000;
-    text-align: left;
-    text-shadow: 0 1px 3px rgba(0,0,0,.3);
-    font:24px 'Trebuchet MS', Helvetica, sans-serif;
-    font-weight: bold;
-    }
-    .popup h2 { /* заголовок 2 */
+}
+
+.popup h2 { 
     color: #008000;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0,0,0,.3);
     font:22px 'Trebuchet MS', Helvetica, sans-serif;
     }
-    /*** Формируем стили модального окна ***/
-    .popup {
+
+.popup {
     top: 0;
     right: 0;
     left: 0;
@@ -435,39 +506,36 @@ p {
     width: 90%;
     min-width: 320px;
     max-width: 600px;
-    /* фиксированное позиционирование, окно стабильно при прокрутке */
     position: fixed;
     padding: 15px;
     border: 1px solid #383838;
-    /* скругление углов */
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     border-radius: 4px;
     background-color: #FFFFFF;
-    /* внешняя тень блока */
     -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     -ms-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     -o-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
-    /* полная прозрачность окна, появление при клике */
     opacity: 0;
-    /* эффект перехода (появление) */
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     -ms-transition: all ease .5s;
     -o-transition: all ease .5s;
     transition: all ease .5s;
-    }
-    /* активируем появление окна и затемнение фона */
-    .overlay:target+.popup {
-    top: 20%; /* положение окна от верха страницы при появлении */
+}
+
+
+.overlay:target+.popup {
+    top: 20%; 
     visibility: visible;
-    opacity: 1; /* убираем прозрачность */
-    }
-    /* формируем кнопку закрытия */
-    .close {
+    opacity: 1; 
+}
+
+
+.close {
     position: absolute;
     top: -10px;
     right: -10px;padding: 0;
@@ -487,112 +555,114 @@ p {
     text-decoration: none;
     font-weight: bold;
     line-height: 20px;
-    /* задаём значения и эффект перехода при наведении */
     -webkit-transition: all ease .8s;
     -moz-transition: all ease .8s;
     -ms-transition: all ease .8s;
     -o-transition: all ease .8s;
     transition: all ease .8s;
-    }
-    .close:before {
+}
+
+.close:before {
     color: rgba(255, 255, 255, 0.9);
     content: "X";
     text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
     font-size: 12px;
-    }
-    .close:hover {
+}
+
+.close:hover {
     background-color: rgba(252, 20, 0, 0.8);
-    /* крутим кнопку при наведении */
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);    
     }
-    /* опционально при добавлении вложений */
     .popup p, .popup div {
     margin-bottom: 10px;
 }
 
-.button-container {
-    float: left;
-    left: 0;
-    width: 7%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    transform: translate(0px, 0px); 
-    top: 0px; 
-    left: 0px; 
-    touch-action: manipulation;
-    
+
+.container2{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+.footer ul{
+	list-style: none;
+}
+.footer{
+    margin-top: 10%;
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
 }
 
-.button-container:hover {
-    transform: left 1%;
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 1;
-}
-
-.btn {
-    margin: 200% 0;
-    justify-content: center;
-    text-align: center;
-}
-
-.button {
-    font-size: 20px;
-    color: white;
+/*responsive*/
+@media(max-width: 767px){
+    .footer-col{
     width: 50%;
-    text-decoration: none;
-    padding: 10px 5px;
-    border-radius: 10px;
-    transition: all 0.3s;
-    cursor: pointer;
-    justify-content: center;
-
+    margin-bottom: 30px;
 }
-.button:hover {
-    background-color: #5555ff;
-    box-shadow:0 0 10px 10px #b7b7ff inset;
 }
-.button:active {
-    background-color: #0000ff;
-    box-shadow:0 0 0 0 #ffffff; 
-}
-
-.searchBox {
-    position: absolute;
-    right: -100%;
+@media(max-width: 574px){
+    .footer-col{
     width: 100%;
-    height: 100%;
-    display: flex;
-    background: #FFF;
-    align-items: center;
-    padding: 0 30px;
-    transition: 0.5s ease-in-out;
 }
-
-.searchBox input {
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 50px;
-    color: #333;
-    font-size: 1.25em;
-    background: #FFF;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.searchBox.active {
-    right: 0;
-}
-
-.searchBtn {
-    position: relative;
-    left: 30px;
-    top: 2.5px;
-    transition: 0.5s ease-in-out;
-}
-.searchBtn.active {
-    left: 0;
 }

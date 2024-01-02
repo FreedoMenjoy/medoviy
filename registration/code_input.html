@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Введите пароль</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        label {
+            font-size: 1.2em;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="code">Введите код:</label><br>
+        <input id="code" name="code" minlength="6" maxlength="6" pattern="\d{6}"><br><br>
+        <button type="check">Подтвердить</button>
+    </form>
+
+</body>
+</html>
