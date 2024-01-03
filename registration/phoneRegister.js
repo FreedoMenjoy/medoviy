@@ -8,12 +8,12 @@ const client = require('twilio')(accountSid, authToken);
 
 class PhoneRegister {
     constructor(clienNumber) {
-        this.clienNumber = clienNumber
-        this.code = Nan
+        this.clientNumber = clienNumber
+        this.code = NaN
     }
 
     sendMessage() {
-        this.code = generateCode()
+        this.code = this.generateCode()
         client.messages
             .create({
                 body: `Проверочный код: ${this.code}`,
@@ -48,3 +48,5 @@ class PhoneRegister {
         this.code = NaN
       }
 }
+
+module.exports = { PhoneRegister };

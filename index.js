@@ -1,24 +1,38 @@
 const express = require("express");
 const path = require("path");
+const pR = require("./registration/phoneRegister")
+const codeCheck = require('./registration/code_input')
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", 'ejs')
+app.use(express.urlencoded({extended : false}))
+app.use(express.static("public"))
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.render("index");
 });
 
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "registration/modules/login.html"));
+    res.render("login");
 });
 
-app.get("/login/code_input", (req, res) => {
-    res.sendFile(path.join(__dirname, "registration/modules/code_input.html"));
+app.get("/market", (req, res) => {
+    res.render("index2");
 });
 
-app.get("/reg_completed", (req, res) => {
-    res.sendFile(path.join(__dirname, "registration/modules/reg_completed.html"));
+app.post("/code_input", (req, res) => {
+    res.render("code_input.ejs");
+    const phoneValue = req.body.phone;
+    console.log(phoneValue)
+    const register = new pR.PhoneRegister(phoneValue);
+    register.sendMessage()
+});
+
+app.post("/reg_completed", (req, res) => {
+    res.render("reg_completed.ejs");
+    const code = req.body.code
+    codeCheck.checkCode(code)
 });
 
 const PORT = 3000;

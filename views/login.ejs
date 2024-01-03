@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация по телефону</title>
+</head>
+<body>
+    <h2>Регистрация по телефону</h2>
+    <label>Номер телефона:</label>
+    <form method="post" action = "/code_input">
+        <input id="phone" name="phone" pattern="\+372[0-9]{7,8}" placeholder="+7 (XXX) XXX-XX-XX" required>
+        <button  type="register"  name="register" id="register">Зарегистрироваться</button>
+    </form>     
+</body>
+</html>
