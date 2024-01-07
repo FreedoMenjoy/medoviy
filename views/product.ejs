@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="
+        медовыйпапа
+        медовый папа
+        honey
+        honey father 
+        сахар
+        мёд
+        Медовый
+        мед
+        натуральный 
+        свежий
+        новый 
+        качественный 
+        хороший 
+        вкусный 
+        дешевый 
+        мытищи 
+        лучший 
+        вкусный
+        приятный
+        подарок
+        сладость
+        детям
+        взрослым ">
+    <title>Медовый Папа</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('blocks/header') -%>
+    <div class = "upward" onclick="scrollToTop()"></div>
+    <div class="container-shop2">  
+        <div class="con-shop">
+            <div class="list-photo"> <!--Слайдер фотографий (бесконечное добавление фотографий (ограничение на 10)) как на вб https://www.wildberries.ru/catalog/13641482/detail.aspx-->
+                <div id="product-slider-container">
+                    <div class="product-slider" id="product-slider">
+                        <% productPhotos.forEach((photo, index) => { %>
+                            <div class = "product-image-cover">
+                                <img class="product-img" src="<%= photo %>" onclick="changeImage('<%= photo %>', this)">
+                            </div>
+                        <% }); %>
+                    </div>
+                    <div class="enlarged-image" id="enlarged-image">
+    
+                    </div>
+    
+                </div> <!--Слайдер фотографий (Выборочное фото)-->
+            </div>
+            <div class="goods-info">
+                <div class="path">
+                    <p><%= productPath %></p> <!--Создание пути до товара (с рабочими переходами) https://woodmart.xtemos.com/shop/other/food/aliquet-rhoncus/-->
+                </div>
+                <h1><%= productName %></h1>
+                <h2><%= productPrice %>₽</h2>
+                <p class="description"><%= productDescription %></p>
+                <div class="to-cart">
+                    <div class="quantity">
+                        <button id="button1">&#10094;</button>
+                        <div id="text-block">1</div>
+                        <button id="button2">&#10095;</button>
+                    </div> <!--Выбор количества-->
+                    <div class="buy-to-cart">В корзину</div> <!--Добавить в корзину-->
+                </div>
+                <div class="panel">
+                    <div class="compare"> <!--При добавлении: картинка меняется и текст сносится-->
+                        <div class="compare1"></div>
+                        <p class="compare2">Сравнить</p>
+                    </div> <!--Система сравнения товаров-->
+                    <div class="wishlist"> <!--При добавлении: картинка меняется и текст сносится-->
+                        <div class="wishlist1"></div>
+                        <p class="wishlist2">В любимое</p>
+                    </div> <!--Добавить в любимое-->
+                </div>
+                <hr>
+                <h3>Характеристики и описание</h3>
+                <input type="checkbox" class="read-more-checker" id="read-more-checker" />
+                <div class="limiter">
+                    <div class="characteristic">
+                        <p><strong>Полезные свойства:</strong></p> <p><%= productGoods %></p> <!--Поставить необязательным фактом-->
+                        <p><strong>Способ приготовления:</strong></p> <p><%= productCooking %></p><!--Поставить необязательным фактом-->
+                        <p><strong>Состав:</strong></p> <p><%= productCompound %></p>
+                        <p><strong>Пищевая ценность на 100 г продукта:</strong></p>
+                        <ul>
+                            <p class="list">белки - <%= productProtein %> г</p>
+                            <p class="list">жиры - <%= productFats %> г</p> 
+                            <p class="list">углеводы - <%= productCarbs %> г</p> 
+                        </ul>
+                        <p><strong>Энергетическая ценность: </strong><%= productEnergeticValue %> кКал (<%= (productEnergeticValue * 4.1868).toFixed(2) %> кДж)</p>
+                        <p><strong>Срок годности:</strong></p> <p><%= productSuitability %></p>
+                        <p><strong>Масса нетто:</strong> <%= productMass %> г</p>
+                    </div>
+                    <div class="bottom"></div>
+                </div>
+                <label for="read-more-checker" class="read-more-button"></label>
+            </div>
+        </div>
+    </div>
+<script src="/scripts/slider-product.js"></script>
+<script src="/scripts/upward.js"></script>
+<script src="/scripts/search.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<%- include('blocks/footer') -%>
+</body>
+</html>

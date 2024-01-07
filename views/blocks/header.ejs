@@ -4,11 +4,14 @@
         <div class="group">
             <ul class="navigation">
                 <li><a href="/">Главная</a></li>
-                <li><a href="/market">Товары</a></li>
-                <li><a href="/login">Войти</a></li>
+                <li><a id="productsLink" href="#">Товары</a></li>
+                <li><a href="/login">Войти</a></li> 
+                
+            </ul>
+            <div class="navigation1">
                 <li><a href="#"><ion-icon name="heart-outline" class="favorite"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="cart-outline" class="cart"></ion-icon></a></li>
-            </ul>
+            </div>
             <div class="search">
                 <span class="icon">
                     <ion-icon name="search-outline" class="searchBtn"></ion-icon>
@@ -21,4 +24,15 @@
                 </div>
         </div>
     </div>
+    <script>
+        var currentLinkElement = document.getElementById("productsLink");
+        var currentLink = window.location.href;
+        var role = currentLink.split("/")[3];
+        var domain = window.location.host;
+        var loginLink = "http://" + domain + "/" + role + "/market";
+        currentLinkElement.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = loginLink;
+        });
+    </script>
 </header>

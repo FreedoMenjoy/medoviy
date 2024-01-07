@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="
+        медовыйпапа
+        медовый папа
+        honey
+        honey father 
+        сахар
+        мёд
+        Медовый
+        мед
+        натуральный 
+        свежий
+        новый 
+        качественный 
+        хороший 
+        вкусный 
+        дешевый 
+        мытищи 
+        лучший 
+        вкусный
+        приятный
+        подарок
+        сладость
+        детям
+        взрослым ">
+    <title>Медовый Папа</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('blocks/header') -%>
+    <div class = "upward" onclick="scrollToTop()"></div>
+    <div class="container-shop">
+        <div class="catalog"> <!--Не забыть подключить каждый товар к поиску (хедер)-->
+            <div class="filter-price"></div> <!--Сортировка по цене (пользователь выставляет сам цену https://woodmart.xtemos.com/shop/?per_row=3&shop_view=grid)-->
+            <div class="filter-category"> <!--Сортировка по категориям (продавец может создавать категории и добавлять буда товар)-->
+
+            </div> 
+            <div class="product-status"> <!--Статус "В продаже" и "В наличии"-->
+
+            </div>
+        </div>
+        <div class="goods">
+            <div class="sort"> <!--Сортировка по: Дефолт (как составлял продавец), популярности, лучший рейтинг, последние добавления, по цене: с низкой до высокой и наоборот-->
+                
+            </div>
+            <div class="parent1">
+                <div class="good1"> </div>
+                <div class="good2"> </div>
+                <div class="good3"> </div>
+                <div class="good4"> </div>
+                <div class="good5"> </div>
+                <div class="good6"> </div>
+                <div class="good7"> </div>
+                <div class="good8"> </div>
+                <div class="good9"> </div>
+                <div class="good10"> </div>
+                <div class="good11"> </div>
+                <div class="good12"> </div>
+            </div>
+            <div> <!--Переход по страницам между товарами-->
+
+            </div>
+        </div>
+    </div>
+<script src="/scripts/upward.js"></script>
+<script src="/scripts/search.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<%- include('blocks/footer') -%>
+</body>
+</html>
