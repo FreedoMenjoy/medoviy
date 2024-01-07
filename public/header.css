@@ -1,0 +1,248 @@
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+    z-index: 3;
+}
+
+.logo {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+/* .logo img {
+    height: 70px;
+    width: 100%;
+} */
+
+.group {
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+.menu ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 1em;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+
+.menu ul li a::before {
+    content: " ";
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: right;
+}
+
+.menu ul li a:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navigation1 {
+    display: flex;
+    padding-left: 20px;
+}
+
+.compare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+    color: black;
+    margin-right: 20px;
+}
+
+.login { 
+    position: absolute;
+    visibility: hidden;
+}
+
+.profile {
+    position: absolute;
+    visibility: hidden;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+    color: black;
+    margin-right: 20px;
+}
+
+.favorite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+    color: black;
+    margin-right: 20px;
+}
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+    color: black;
+}
+
+.menu .search {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.searchBox {
+    position: absolute;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #FFF;
+    align-items: center;
+    padding: 0 30px;
+    transition: 0.5s ease-in-out;
+}
+
+.searchBox input {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 50px;
+    color: #333;
+    font-size: 1.25em;
+    background: #FFF;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.searchBox.active {
+    right: 0;
+}
+
+.searchBtn {
+    position: relative;
+    left: 30px;
+    top: 2.5px;
+    transition: 0.5s ease-in-out;
+}
+.searchBtn.active {
+    left: 0;
+}
+
+.closeBtn {
+    opacity: 0;
+    visibility: hidden;
+    top: 2.5px;
+    transition: 0.5s;
+    scale: 0;
+}
+
+.closeBtn.active {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+    scale: 1;
+}
+
+.menuToggle {
+    position: relative;
+    display: none;
+}
+
+.navigation {
+    margin-left: 30px;
+}
+@media (max-width: 860px) {
+    .logo {
+        font-size: 1.18em;
+    font-weight: 700;
+    }
+}
+@media (max-width: 800px) {
+    .searchBtn {
+        left: 0;
+    }
+
+    .menuToggle {
+        position: absolute;
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        transform: translateX(30px);
+        z-index: 10;
+    }
+
+    .menu .navigation {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        left: 100%;
+    }
+
+    .menu.open .navigation {
+        top: 80px;
+        opacity: 1;
+        visibility: visible;
+        left: 0;    
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        width: 100%;
+        height: calc(100vh - 80px);
+        padding: 40px;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .menu.open .navigation li a {
+        font-size: 1.25em;
+    }
+
+    .hide {
+        display: none;
+    }
+    .navigation1 {
+        display: flex;
+        padding-left: 20px;
+    }
+}

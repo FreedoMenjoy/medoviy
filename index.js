@@ -51,6 +51,10 @@ app.get("/:role", requireAuth, (req, res) => {
     res.render("index");
 });
 
+app.get("/:role/profile", (req, res) => {
+  res.render("a_profile");
+});
+
 app.get("/:role/market", (req, res) => {
   res.render("market");
 });
