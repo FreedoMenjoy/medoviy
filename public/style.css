@@ -1161,30 +1161,84 @@ hr {
 
 .a_menu {
     background: white;
-    position: fixed;
     display: inline-block;
     border: 1px solid black;
     border-radius: 5px;
     width: 15%;
-    height: 60%;
-    margin-left: 30px;
+    height: 52%;
+    margin-left: 7%;
 }
 
 .con-block-all {
+    position: relative;
     border: 1px solid black;
     border-radius: 5px;
-    width: 80%;
-    margin-right: 30px;
+    width: 70%;
+    margin-right: 6%;
     height: 100%;
     float: right;
 }
 
 .buttons-menu {
-    margin-left: 30%;
+    margin-left: 15%;
+    display: inline-block;
 }
 
 .buttons-menu a {
     text-decoration: none;
     color: black;
     cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.display {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.profile1 .p {
+    display: inline-block;
+}
+
+.text-a {
+    margin: 20px auto;
+    color: grey;
+}
+
+.con-block-hv {
+    position: absolute;
+    width: 100%;
+}
+
+.category-info {
+    margin: 0 auto;
+    width: 95%; 
+    height: 80px;
+    border: 1px solid black;
+}
+
+.bin {
+    font-size: 2.5em;
+    float: right;
+} 
+
+.category-strong {
+    display: inline-block;
+    width: 300px;
+    text-align: center;
+}
+
+.name {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+}
+
+.category-info img {
+    display: inline-block;
+    width: 7%;
+    border: 1px solid black;
+    margin-left: 2%;
+    margin-top: 6px;
 }

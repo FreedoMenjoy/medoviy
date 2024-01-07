@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="
+        медовыйпапа
+        медовый папа
+        honey
+        honey father 
+        сахар
+        мёд
+        Медовый
+        мед
+        натуральный 
+        свежий
+        новый 
+        качественный 
+        хороший 
+        вкусный 
+        дешевый 
+        мытищи 
+        лучший 
+        вкусный
+        приятный
+        подарок
+        сладость
+        детям
+        взрослым ">
+    <title>Медовый Папа</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/header.css" type="text/css">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="stylesheet" href="/footer.css" type="text/css">
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+</head>
+<body>
+    <%- include('blocks/header') -%>
+    <div class = "upward" onclick="scrollToTop()"></div>
+    <div class="container4">
+        <div class="con4">
+            <div class="a_menu">
+                <div class="buttons-menu">
+                    <p class="text-a">Профиль</p>
+                    <a class="profile1" onclick="setActive('con-block-settings')">
+                        
+                        <p><ion-icon name="person-circle-outline" class="display"></ion-icon>Мой профиль</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <p class="text-a">Работа с клиентами</p>
+                    <a class="profile1" onclick="setActive('con-block-order')">
+                        
+                        <p><ion-icon name="cube-outline" class="display"></ion-icon>Заказы</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <a class="profile1" onclick="setActive('con-block-rates')">
+                        
+                        <p><ion-icon name="star-outline" class="display"></ion-icon>Отзывы</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <a class="profile1" onclick="setActive('con-block-questions')">
+                        
+                        <p><ion-icon name="help-circle-outline" class="display"></ion-icon>Вопросы</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <p class="text-a">Настройки</p>
+                    <a class="profile1" onclick="setActive('con-block-category')">
+                        
+                        <p><ion-icon name="folder-outline" class="display"></ion-icon>Категории</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <a class="profile1" onclick="setActive('con-block-undercategory')">
+                        
+                        <p><ion-icon name="folder-open-outline" class="display"></ion-icon>Подкатегории</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <a class="profile1" onclick="setActive('con-block-goods')">
+                        
+                        <p><ion-icon name="list-outline" class="display"></ion-icon>Товары</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <a class="profile1" onclick="setActive('con-block-photos')">
+                        
+                        <p><ion-icon name="images-outline" class="display"></ion-icon>Фотографии</p>
+                    </a>
+                </div>
+                <div class="buttons-menu">
+                    <p class="text-a">Аналитика</p>
+                    <a class="profile1" onclick="setActive('con-block-analitic')">
+                        
+                        <p><ion-icon name="stats-chart-outline" class="display"></ion-icon>Аналитика</p>
+                    </a>
+                </div>
+            </div>
+            <div class="con-block-all">
+                <div id="con-block-settings" class="con-block-hv active">
+                    
+                </div>
+                <div id="con-block-order" class="con-block-hv">
+                    <p></p>
+                </div>
+                <div id="con-block-rates" class="con-block-hv">
+                    <p></p>
+                </div>
+                <div id="con-block-questions" class="con-block-hv">
+                    <p></p>
+                </div>
+                <div id="con-block-category" class="con-block-hv">
+                    <button>
+                        Добавить
+                    </button>
+                    <div class="category-info">
+                        <div class="name">Название</div>
+                        <div class="category-strong">
+                            <p>Дата создания:</p>
+                            <p>08.01.2024</p>
+                        </div>
+                        <div class="category-strong">
+                            <p>Сила категории (от 0 до 2):</p>
+                            <p>1</p>
+                        </div>
+                        <ion-icon name="trash-bin-outline" class="bin"></ion-icon>
+                        <ion-icon name="pencil-outline" class="bin"></ion-icon>
+                    </div>
+                </div>
+                <div id="con-block-undercategory" class="con-block-hv">
+                    <button>
+                        Добавить
+                    </button>
+                    <div class="category-info">
+                        <div class="name">Название</div>
+                        <div class="category-strong">
+                            <p>Дата создания:</p>
+                            <p>08.01.2024</p>
+                        </div>
+                        <div class="category-strong">
+                            <p>Сила категории (от 0 до 2):</p>
+                            <p>1</p>
+                        </div>
+                        <ion-icon name="trash-bin-outline" class="bin"></ion-icon>
+                        <ion-icon name="pencil-outline" class="bin"></ion-icon>
+                    </div>
+                </div>
+                <div id="con-block-goods" class="con-block-hv">
+                    <button>
+                        Добавить
+                    </button>
+                    <div class="category-info">
+                        <img src="/product_photos/standartPhoto.png" alt="">
+                        <div class="name">Название</div>
+                        <div class="category-strong">
+                            <p>Категории:</p>
+                            <p>123</p>
+                        </div>
+                        <div class="category-strong">
+                            <p>Подкатегории:</p>
+                            <p>123</p>
+                        </div>
+                        <ion-icon name="trash-bin-outline" class="bin"></ion-icon>
+                        <ion-icon name="pencil-outline" class="bin"></ion-icon>
+                    </div>
+                </div>
+                <div id="con-block-photos" class="con-block-hv">
+                    <p></p>
+                </div>
+                <div id="con-block-analitic" class="con-block-hv">
+                    <p></p>
+                </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        setActive("con-block-settings")
+        function setActive(itemId) {
+        const contentBlock = document.getElementById(itemId);
+    
+        const activeElements = document.querySelectorAll('.active');
+        activeElements.forEach(element => {
+            element.classList.remove('active');
+        });
+    
+        if (contentBlock) {
+            contentBlock.classList.add('active');
+        }
+    }
+    </script>
+<script src="/scripts/upward.js"></script>
+<script src="/scripts/search.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<%- include('blocks/footer') -%>
+</body>
+</html>
