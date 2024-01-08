@@ -10,11 +10,8 @@ class MongoHandler {
   async connect(collectionName) {
     try {
       await this.client.connect();
-      console.log('Connected to MongoDB');
       const db = this.client.db(this.dbName);
       this.collection = db.collection(collectionName);
-
-      console.log(`Collection "${collectionName}" accessed successfully.`);
     } catch (err) {
       console.error('Error connecting to MongoDB:', err);
       throw err;
@@ -22,9 +19,9 @@ class MongoHandler {
   }
   
   async addProduct(
-    productPath,
     productName, 
     productPrice, 
+    productCategories,
     productDescription,  
     productCompound, 
     productValue, 
@@ -41,9 +38,9 @@ class MongoHandler {
     await this.connect("products");
     await this.insertData({
         id : await this.generateId(), 
-        path : productPath,
         name: productName,
         price: productPrice,
+        categories : productCategories,
         description: productDescription,
         compound: productCompound,
         value: productValue,
@@ -60,6 +57,11 @@ class MongoHandler {
   }
 
   async addUser(username, userpassword, user_role, user_phone = null, user_data = null){
+    await this.connect("users");
+    await this.insertData({id : await this.generateId(), name : username , password : userpassword, role : user_role, phone: user_phone, userdata : user_data});
+  }
+
+  async addCategory(username, userpassword, user_role, user_phone = null, user_data = null){
     await this.connect("users");
     await this.insertData({id : await this.generateId(), name : username , password : userpassword, role : user_role, phone: user_phone, userdata : user_data});
   }
@@ -107,6 +109,19 @@ class MongoHandler {
       return result
     } catch (err) {
       console.error('Ошибка при получении данных:', err);
+    } finally {
+      this.client.close();
+    }
+  }
+
+  async getAllData(collectionName) {
+    await this.connect(collectionName);
+
+    try {
+      const result = await this.collection.find({}).toArray();
+      return result;
+    } catch (err) {
+      console.error('Ошибка при получении всех данных:', err);
     } finally {
       this.client.close();
     }

@@ -545,6 +545,11 @@ embed, iframe {
     margin-bottom: 10px;
 }
 
+
+.container-footer {
+	max-width: 1170px;
+	margin:auto;
+}
 .slider2-wrapper{
     width: 80%;
     height: 60%;
@@ -721,6 +726,8 @@ embed, iframe {
     background-color : gray;
 }
 
+
+
 .container-shop2 {
     width: 100%;
     display: flex;
@@ -728,6 +735,7 @@ embed, iframe {
     margin: center;
     position: relative;
     justify-content:center;
+    align-items: center;
 }
 
 .con-shop {
@@ -819,172 +827,6 @@ hr {
     display: inline-block;
     color: #000000;
     text-decoration: underline;
-}
-
-.buy-to-cart {
-    margin-left: 10px;
-    background: rgb(255,207,72);
-    border-radius: 10px;
-    border: 1px solid black;
-    text-align: center;
-    justify-content: center; 
-    width: 100px;
-    height: 40px;
-    display: inline-block;
-    text-decoration: none;
-    transition: 0.3s;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;  
-    text-decoration: none;
-    color: black;
-    justify-content: center;
-}
-
-.buy-to-cart:hover {
-    background: rgb(255, 205, 69);
-    transition: 0.3s;
-}
-
-#button1, #text-block {
-    height: 50px;
-    border: none;
-    outline: none;
-    float:left
-}
-
-#button1 {
-    width: 30px;
-    cursor: pointer;
-}
-
-#button2, #text-block {
-    height: 50px;
-    border: none;
-    outline: none;
-}
-
-#button2 {
-    width: 30px;
-    cursor: pointer;
-}
-
-#text-block {
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black; /* Добавляем черную обводку */
-}
-
-.quantity {
-    margin-top: 25px;
-    display: inline-block;
-    position: relative;
-}
-
-.panel {
-    margin-top: 25px;
-    display: inline-block;
-    position: relative;
-    height: 40px;
-}
-
-.compare {
-    display: inline-block;
-}
-
-.compare1 {
-    position: absolute;
-    top: 0;
-    display: inline-block;
-    background-image: url(compare1.png);
-    background-size:cover;
-    width: 30px;
-    height: 30px;
-}
-
-.compare2 {
-    margin-top: 5px;
-    display: inline-block;
-    margin-left: 35px;
-}
-
-
-.wishlist {
-    margin-left: 20px;
-    display: inline-block;
-}
-
-.wishlist1 {
-    position: absolute;
-    top: 0;
-    display: inline-block;
-    background-image: url(heart1.png);
-    background-size:cover;
-    width: 30px;
-    height: 30px;
-}
-
-.wishlist2 {
-    margin-top: 5px;
-    display: inline-block;
-    margin-left: 35px;
-}
-
-#product-slider-container {
-    width: 650px;
-    height: 750px;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-}
-
-.product-slider {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-}
-
-.product-slider img {
-    width: 84px;
-    height: 112px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border: 2px solid transparent;
-    overflow : hidden;
-    border-radius: 10px; /* Добавляем закругленные углы */
-    border-color: black;
-}
-
-.product-slider img.selected {
-    border-color: blue;
-}
-
-.enlarged-image {
-    flex-grow: 1;
-    background-color: #e0e0e0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-
-.enlarged-image img {
-    max-width: 100%;
-    max-height: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-img {
-    position: relative;
-}
-
-.con-block-hv {
-    visibility: hidden;
-}
-
-.con-block-hv.active {
-    visibility: visible;
 }
 
 .pages-container {
@@ -1133,23 +975,19 @@ hr {
     height: 30px;
     cursor: pointer;
 }
+
 .parent1 h2 {
     color: rgb(255,207,72);
     text-shadow: 1.5px 0 black;
     margin-top: 15px;
     text-align: center;
     font-size: 23px;
-    letter-spacing: 0.1em;
 }
 
 .parent1 h1 {
-    color: black;
     bottom: 20px;
     text-align: center;
     font-size: 25px;
-}
-.nav {
-    text-decoration: none;
 }
 
 .text-good {
@@ -1158,6 +996,14 @@ hr {
     justify-content: center;
     margin-left: 27%;
 }
+
+.image-container{
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
 .img-good {
     width: 90%;
     margin-left: 5%;
@@ -1165,92 +1011,93 @@ hr {
     margin-bottom: 5%;
 }
 
-.con4 {
-    margin-top: 150px;
-    display: inline-block;
-    width: 100%;
-    height: 1000px;
+#button1, #text-block {
+    height: 50px;
+    border: none;
+    outline: none;
+    float:left
 }
 
-.a_menu {
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 15%;
-    height: 52%;
-    margin-left: 7%;
-}
-
-.con-block-all {
-    position: relative;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 70%;
-    margin-right: 6%;
-    height: 100%;
-    float: right;
-}
-
-.buttons-menu {
-    margin-left: 15%;
-    display: inline-block;
-}
-
-.buttons-menu a {
-    text-decoration: none;
-    color: black;
+#button1 {
+    width: 30px;
     cursor: pointer;
+}
+
+#button2, #text-block {
+    height: 50px;
+    border: none;
+    outline: none;
+}
+
+#button2 {
+    width: 30px;
+    cursor: pointer;
+}
+
+#text-block {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* Добавляем черную обводку */
+}
+
+.quantity {
+    margin-top: 25px;
     display: inline-block;
-    margin-bottom: 5px;
+    position: relative;
 }
 
-.display {
+.panel {
+    margin-top: 25px;
     display: inline-block;
-    margin-right: 10px;
+    position: relative;
+    height: 40px;
 }
 
-.profile1 .p {
-    display: inline-block;
+#product-slider-container {
+    width: 650px;
+    height: 750px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
 }
 
-.text-a {
-    margin: 20px auto;
-    color: grey;
+.product-slider {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
 }
 
-.con-block-hv {
-    position: absolute;
-    width: 100%;
+.product-slider img {
+    width: 84px;
+    height: 112px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    overflow : hidden;
+    border-radius: 10px; /* Добавляем закругленные углы */
+    border-color: black;
 }
 
-.category-info {
-    margin: 0 auto;
-    width: 95%; 
-    height: 80px;
-    border: 1px solid black;
+.product-slider img.selected {
+    border-color: blue;
 }
 
-.bin {
-    font-size: 2.5em;
-    float: right;
-} 
-
-.category-strong {
-    display: inline-block;
-    width: 300px;
-    text-align: center;
+.enlarged-image {
+    flex-grow: 1;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.name {
-    display: inline-block;
-    width: 200px;
-    text-align: center;
+.enlarged-image img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease-in-out;
 }
 
-.category-info img {
-    display: inline-block;
-    width: 7%;
-    border: 1px solid black;
-    margin-left: 2%;
-    margin-top: 6px;
+.product-img {
+    position: relative;
 }

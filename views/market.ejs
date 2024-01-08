@@ -39,6 +39,7 @@
     <%- include('blocks/header') -%>
     <div class = "upward" onclick="scrollToTop()"></div>
     <div class="container-shop">
+        
         <div class="catalog"> <!--Не забыть подключить каждый товар к поиску (хедер)-->
             <div class="filter-price"></div> <!--Сортировка по цене (пользователь выставляет сам цену https://woodmart.xtemos.com/shop/?per_row=3&shop_view=grid)-->
             <div class="filter-category"> <!--Сортировка по категориям (продавец может создавать категории и добавлять буда товар)-->
@@ -49,209 +50,47 @@
             </div>
         </div>
         <div class="goods">
-            <div class="sort"> <!--Сортировка по: Дефолт (как составлял продавец), популярности, лучший рейтинг, последние добавления, по цене: с низкой до высокой и наоборот-->
+            <div class="parent1-container">
+                <div class="sort"> <!--Сортировка по: Дефолт (как составлял продавец), популярности, лучший рейтинг, последние добавления, по цене: с низкой до высокой и наоборот-->
                 
-            </div>
-            <div class="parent1">
-                <div class="good1">
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
                 </div>
-                <div class="good2"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
+                <div class="parent1">
+                    <%
+                        const productsPerPage = 15; 
+                        const totalProducts = productName.length;
+                        const totalPages = Math.ceil(totalProducts / productsPerPage);
+                        const currentBlock = 1; 
+                        const startIdx = (currentBlock - 1) * productsPerPage;
+                        for (let i = startIdx; i < Math.min(startIdx + productsPerPage, totalProducts); i++) {
+                    %>
+                    
+                        <div class="good" id="good<%= i %>">
+                            <a  class="nav" href = <%= productLink[i] %>>
+                            <img class = "good-image" src="<%= productPhoto[i] %>">
+                            <div class="text-good-container">
+                                
+                                    <% const truncatedProductName = productName[i].length > 51 ? productName[i].substring(0, 51 - 3) + '...' : productName[i]; %>
+                                    <h1><%= truncatedProductName %></h1>
+                                    <h2><%= productPrice[i] %>₽</h2>
+                                
+                            </div> 
+                            </a> 
+                            <div class="buttons-line">
+                                <div class="buy-to-cart1">В корзину</div>
+                                <div class="wishlist3"></div>
+                                <div class="compare3"></div>
+                            </div>
                         </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good3"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good4"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good5"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good6"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good7"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good8"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good9"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good10"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good11"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
-                </div>
-                <div class="good12"> 
-                    <div >
-                        <img src="/product_photos/standartPhoto.png" alt="" class="img-good">
-                    </div>
-                    <div class="text-good">
-                        <h1>Название</h1>
-                        <h2>200₽</h2>
-                    </div>
-                    <div class="buy-to-cart1">В корзину</div>
-                    <div class="buttons-h-v">
-                        <div class="wishlist3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                        <div class="compare3"> <!--При добавлении: картинка меняется и текст сносится-->
-                        </div>
-                    </div>
+                    
+                    <% } %>
                 </div>
             </div>
-            <ul class="pages"> <!--Переход по страницам между товарами-->
-                <li class="pages-buttons"><</li>
-                <li class="pages-buttons">1</li>
-                <li class="pages-buttons">2</li>
-                <li class="pages-buttons">3</li>
-                <li class="pages-buttons">></li>
+        </div>
+        <div class="pages-container">
+            <ul class="pages">
+                <% for (let page = 1; page <= totalPages; page++) { %>
+                    <li class="pages-number" onclick="goToPage(<%= page %>)"><%= page %></li>
+                <% } %>
             </ul>
         </div>
     </div>

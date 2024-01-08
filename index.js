@@ -51,12 +51,27 @@ app.get("/:role", requireAuth, (req, res) => {
     res.render("index");
 });
 
-app.get("/:role/profile", (req, res) => {
-  res.render("a_profile");
-});
+app.get("/:role/market", async (req, res) => {
+  const MongoHandler = new mongo();
+  try {
+    const allProductsData = await MongoHandler.getAllData("products");
 
-app.get("/:role/market", (req, res) => {
-  res.render("market");
+    const userRole = req.session.userRole;
+    
+    const photoList = allProductsData.map(product => product.photos);
+    const nameList = allProductsData.map(product => product.name);
+    const priceList = allProductsData.map(product => product.price);
+    const linkList = allProductsData.map(product => {
+        const productId = product.id;
+        const link = `/${userRole}/product_page/${productId}`;
+        return link;
+    });
+
+    res.render("market", {productPhoto : photoList, productName : nameList, productLink : linkList, productPrice : priceList});
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Ошибка сервера');
+  }
 });
 
 app.post("/check_data", (req, res) => {
@@ -76,7 +91,7 @@ app.post("/check_data", (req, res) => {
     })
 });
 
-app.get('/:role/product/:id', async (req, res) => {
+app.get('/:role/product_page/:id', async (req, res) => {
   const productId = req.params.id;
   const MongoHandler = new mongo();
 
@@ -129,7 +144,7 @@ app.get('/:role/settings', async (req, res) => {
     }
   });
 
-const PORT = 5000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Connected to http://localhost:${PORT}`);
