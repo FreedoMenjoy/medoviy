@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&family=Montserrat&family=Oswald&family=Secular+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
 .menu {
     position: fixed;
     top: 0;
@@ -85,11 +104,21 @@
 .login { 
     position: absolute;
     visibility: hidden;
-}
+} 
 
 .profile {
     position: absolute;
     visibility: hidden;
+}
+
+.login.active {
+    position: relative;
+    visibility: visible;
+}
+
+.profile.active{
+    position: relative;
+    visibility: visible;
 }
 
 .profile {

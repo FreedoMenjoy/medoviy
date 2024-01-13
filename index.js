@@ -56,7 +56,10 @@ app.get("/:role/market", async (req, res) => {
   try {
     const allProductsData = await MongoHandler.getAllData("products");
 
-    const userRole = req.session.userRole;
+    let userRole = req.session.userRole;
+    if (userRole == null){
+      userRole = "guest" 
+    }
     
     const photoList = allProductsData.map(product => product.photos);
     const nameList = allProductsData.map(product => product.name);
@@ -67,7 +70,15 @@ app.get("/:role/market", async (req, res) => {
         return link;
     });
 
-    res.render("market", {productPhoto : photoList, productName : nameList, productLink : linkList, productPrice : priceList});
+    res.render("market", {
+      productData: JSON.stringify({
+        productPhoto: photoList,
+        productName: nameList,
+        productLink: linkList,
+        productPrice: priceList
+      })
+    });
+    
     } catch (error) {
       console.error(error);
       res.status(500).send('Ошибка сервера');
@@ -135,6 +146,11 @@ app.get('/:role/product_page/:id', async (req, res) => {
   }
 });
 
+app.get("/:role/profile", requireAuth, (req, res) => {
+  if (req.session.userRole == "a") {
+    res.render("a_profile");
+  }
+});
 
 app.get('/:role/settings', async (req, res) => {
      if (req.session.userRole === 'a') {

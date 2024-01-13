@@ -30,22 +30,20 @@
         взрослым ">
     <title>Медовый Папа</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/header.css" type="text/css">
-    <link rel="stylesheet" href="/style.css" type="text/css">
-    <link rel="stylesheet" href="/footer.css" type="text/css">
-    <link rel="icon" href="/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/index.css" type="text/css">
+    <link rel="icon" href="/pictures/logo.png" type="image/x-icon">
 </head>
 <body>
     <%- include('blocks/header') -%>
-    <div class = "upward" onclick="scrollToTop()"></div>
+    <%- include('blocks/upward') -%>
     <div class = "slider-container">
         <div class="slider">
             <ul>
                 <li>
-                    <img src= "paseka.png">
+                    <img src= "/pictures/paseka.png">
                 </li>
                 <li>
-                    <img src= "bee.png">
+                    <img src= "/pictures/bee.png">
                 </li>
             </ul>
         </div>
@@ -62,13 +60,13 @@
     </div>
     <div class="container">
         <div class="block">
-            <img src="/photo1.png" class="position1" alt="">
-            <img src="/photo1.png" class="position2"alt="">
+            <img src="/pictures/photo1.png" class="position1" alt="">
+            <img src="/pictures/photo1.png" class="position2"alt="">
         </div>
         <div class="block block1">
             <div class="block-main">
                 <div>
-                    <img src="/honey.png" class="about-img" alt="">
+                    <img src="/pictures/honey.png" class="about-img" alt="">
                 </div>
                 <h2>Добро пожаловать на наш сайт!</h2>
                 <h1>О нашем <strong>производстве</strong></h1>
@@ -76,7 +74,7 @@
                 <a href="#" class="more">
                     <p class="more-text">Ещё</p> 
                 </a>
-                <div><img src="/podpis.png" class="about-img" alt=""></div>
+                <div><img src="/pictures/podpis.png" class="about-img" alt=""></div>
             </div>
         </div>
     </div>
@@ -91,7 +89,7 @@
                 </a>
         </div>
         <div class="block block1">
-            <a href="#win3"><img src="/logo.png" width="150" height="150" alt="" /></a>
+            <a href="#win3"><img src="/pictures/logo.png" width="150" height="150" alt="" /></a>
             <a href="#x" class="overlay" id="win3"></a>
             <div class="popup">
                 <h2>Работа пчёл</h2>
@@ -202,7 +200,6 @@
             <a class = "dot_s2" onclick="moveToSlide_s2(5)"></a>
         </div>
     </div>
-<script src="/scripts/upward.js"></script>
 <script src="/scripts/search.js"></script>
 <script src="/scripts/sliderMain.js"></script>
 <script src="/scripts/slider2.js"></script>

@@ -1,0 +1,20 @@
+.upward {
+    position : fixed;
+    bottom: 40px;
+    right: 0px;
+    width: 70px;
+    height: 70px;
+    background-image: url(/pictures/caret-up-circle-outline.png);
+    background-size: cover;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s;
+    z-index: 2;
+}
+
+.upward.active{
+    visibility: visible;
+    opacity: 1;
+    right: 40px;
+}

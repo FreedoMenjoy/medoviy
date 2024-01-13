@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="/styles/header.css">
 <header>
     <div class="menu">
         <a href="/" class="logo"> Медовый Папа<!-- <img src="logo.png" alt="logo"> --> </a>
@@ -5,11 +6,10 @@
             <ul class="navigation">
                 <li><a href="/">Главная</a></li>
                 <li><a id="productsLink" href="#">Товары</a></li>
-                <li class="login"><a href="/login">Войти</a></li> 
-                
+                <li class="login active"><a href="/login">Войти</a></li> 
             </ul>
             <div class="navigation1">
-                <li><a href="#"><ion-icon name="person-outline" class="profile"></ion-icon></a></li>
+                <li><a id="profileLink" href="#"><ion-icon name="person-outline" class="profile"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="git-compare-outline" class="compare"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="heart-outline" class="favorite"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="cart-outline" class="cart"></ion-icon></a></li>
@@ -27,14 +27,53 @@
         </div>
     </div>
     <script>
-        var currentLinkElement = document.getElementById("productsLink");
         var currentLink = window.location.href;
         var role = currentLink.split("/")[3];
         var domain = window.location.host;
-        var loginLink = "http://" + domain + "/" + role + "/market";
-        currentLinkElement.addEventListener("click", function(event) {
+        var roleLink = "http://" + domain + "/" + role;
+        var marketLink = roleLink + "/market";
+        var profileLink = roleLink + "/profile";
+        
+        var market = document.getElementById("productsLink");
+        market.addEventListener("click", function(event) {
             event.preventDefault();
-            window.location.href = loginLink;
+            window.location.href = marketLink;
         });
+
+        var profile = document.getElementById("profileLink");   
+        profile.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = profileLink;
+        });
+    </script>
+    <script>
+        var logins = document.querySelectorAll(".login");
+        var profiles = document.querySelectorAll(".profile");
+
+        if (role == "guest") {
+            logins.forEach(login => {
+                    if (!login.classList.contains("active")) {
+                        login.classList.add("active");
+                    }
+                });
+
+                profiles.forEach(profile => {
+                    if (profile.classList.contains("active")) {
+                        profile.classList.remove("active");
+                    }
+                });
+            } else {
+                logins.forEach(login => {
+                    if (login.classList.contains("active")) {
+                        login.classList.remove("active");
+                    }
+                });
+
+                profiles.forEach(profile => {
+                    if (!profile.classList.contains("active")) {
+                        profile.classList.add("active");
+                    }
+                });
+            }
     </script>
 </header>

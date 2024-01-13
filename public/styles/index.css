@@ -1,43 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&family=Montserrat&family=Oswald&family=Secular+One&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Comfortaa', sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-li {
-    list-style: none;
-}
-
-.upward {
-    position : fixed;
-    bottom: 40px;
-    right: 0px;
-    width: 70px;
-    height: 70px;
-    background-image: url("caret-up-circle-outline.png");
-    background-size: cover;
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.7s;
-    z-index: 2;
-}
-
-.upward.active{
-    visibility: visible;
-    opacity: 1;
-    right: 40px;
-}
-
 .slider-container {
     position: absolute;
     width: 100%;
@@ -68,7 +28,7 @@ li {
     margin: 0;
     padding: 0;
 }
- 
+
 .slider li {
     position: absolute;
     top: 0;
@@ -77,7 +37,7 @@ li {
     transition: opacity 1.5s ease-in-out;
     transform: scale(1);
 }
- 
+
 .slider li.active {
     transform: scale(1);
     animation: zoomIn 13.5s infinite ease-in-out;
@@ -87,7 +47,7 @@ li {
 .slider li.inactive {
     transform: scale(1.2);
 }
- 
+
 .slider .caption {
     position: absolute;
     bottom: 0;
@@ -99,14 +59,6 @@ li {
     padding: 10px;
     text-align: center;
 }
-
-.responsive-image {
-    width: 100%;
-    height: 100%;
-    max-height: 80vh;
-    display: block;
-    margin: 0 auto;
-}    
 
 .button-container {
     position: absolute;
@@ -309,6 +261,7 @@ p {
     margin: 0 auto;
 }
 
+
 .parent {
     width: 100%;
     height: 700px;
@@ -373,12 +326,12 @@ p {
     background-color: blue;
     color: rgb(255, 255, 255);
     text-align: left;
-    background: url(/photo3.png);
+    background: url(/pictures/photo3.png);
     background-size: cover;
 }
 .div2 { /*Левый верхний квадрат*/
     grid-area: 1 / 2 / 2 / 3; 
-    background: url(/photo2.png);
+    background: url(/pictures/photo2.png);
     background-size: cover;
 }
 .div3 { /*Правый верхний квадрат*/
@@ -395,7 +348,7 @@ p {
 }
 .div5 { /*Правый нижний квадрат*/
     grid-area: 2 / 3 / 3 / 4; 
-    background: url(/photo2.png);
+    background: url(/pictures/photo2.png);
     background-size: cover;
 }
 .div6 { /*Правый блок*/
@@ -403,7 +356,7 @@ p {
     background-color: gray;
     color: rgb(255, 255, 255);
     text-align: center;
-    background: url(/photo4.png);
+    background: url(/pictures/photo4.png);
     background-size: cover;
 }
 
@@ -430,6 +383,7 @@ p {
     opacity: 1;
     }
 
+    
 .is-image {
     top: 0;
     right: 0;
@@ -545,11 +499,6 @@ embed, iframe {
     margin-bottom: 10px;
 }
 
-
-.container-footer {
-	max-width: 1170px;
-	margin:auto;
-}
 .slider2-wrapper{
     width: 80%;
     height: 60%;
@@ -713,7 +662,7 @@ embed, iframe {
 
 .controls-s3 .dot_s3{
     width: 15px;
-    height: 15px;
+    height: 15px;   
     background: #000;
     border-radius: 50%;
 } 
@@ -724,380 +673,4 @@ embed, iframe {
 
 .controls-s3 .dot_s3:hover{
     background-color : gray;
-}
-
-
-
-.container-shop2 {
-    width: 100%;
-    display: flex;
-    margin-top: 150px;
-    margin: center;
-    position: relative;
-    justify-content:center;
-    align-items: center;
-}
-
-.con-shop {
-    display: inline-block;
-    width: 100%;
-}
-
-.list-photo {
-    width: 500px;
-    height: 500px;
-    float: left;
-    margin-left: 200px;
-}
-
-.goods-info {
-    width: 50%;
-    height: auto;
-    float: right;
-}
-
-.description {
-    width: 80%;
-    margin-top: 30px;
-}
-
-hr {
-    margin: 30px auto;
-    width: 90%;
-    float: left;
-    display: block;
-}
-
-.goods-info h2 {
-    color: rgb(255,207,72);
-    text-shadow: 1.5px 0 black;
-    margin-top: 30px;
-}
-
-.goods-info h1 {
-    margin-top: 30px;
-}
-
-.goods-info h3 {
-    margin-bottom: 30px;
-}
-
-.characteristic p{
-    padding-bottom: 10px;
-    width: 80%;
-}
-
-.limiter {
-    max-height: 200px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-}
-.limiter .bottom {
-    position: absolute; /* Если прыгает - можно попробовать sticky */
-    bottom: 0;
-    background: linear-gradient(
-    to bottom,
-    rgb(255 217 29 / 0%),
-    rgba(0, 0, 0, 0.219)90%);
-    width: 80%;
-    height: 60px;
-    opacity: 1;
-    transition: 0.3s;
-}
-.read-more-checker {
-    opacity: 0;
-    position: absolute;
-}
-.read-more-checker:checked ~ .limiter {
-    max-height: none;
-}
-.read-more-checker:checked ~ .limiter .bottom {
-    opacity: 0;
-    transition: 0.3s;
-}
-.read-more-checker ~ .read-more-button:before {
-    content: "Развернуть";
-}
-.read-more-checker:checked ~ .read-more-button:before {
-    content: "Свернуть";
-}
-.read-more-button {
-    cursor: pointer;
-    display: inline-block;
-    color: #000000;
-    text-decoration: underline;
-}
-
-.pages-container {
-    margin: 0 auto;
-    width: 20%;
-    display: flex;
-}
-
-.pages {
-    margin: 0 auto;
-}
-
-.pages-number {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 2px;
-    border: 1px solid black;
-    cursor: pointer;
-    line-height: 30px; 
-}
-
-
-.pages-button {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 2px;
-    border: 1px solid black;
-    cursor: pointer;
-    line-height: 30px; 
-}
-
-.container-shop {
-    width: 100%;
-    height: 100%;
-}
-
-.goods{
-    width: 100%;
-    height: 100%;
-    max-width: 80%;
-    position: relative;
-}
-
-.parent1-container {
-    height: 100%;
-}
-
-.parent1 { 
-    position: relative;
-    height: auto;
-    width: 100%;
-    display: grid;
-    left : 10%;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: repeat(4, minmax(100px, auto));
-    grid-gap: 10px;
-    margin-top: 80px;
-}
-
-.good {
-    width: 300px;
-    height: 400px;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-}
-
-.good-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.text-good-container {
-    flex: 1;
-    padding: 10px;
-}
-
-.buttons-line {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid #ccc;
-    text-align: center;
-    padding: 5px 0;
-}
-
-.buy-to-cart1 {
-    position: relative;
-    background: rgb(255,207,72);
-    border-radius: 10px;
-    border: 1px solid black;
-    text-align: center;
-    justify-content: center; 
-    width: 100px;
-    height: 40px;
-    display: inline-block;
-    text-decoration: none;
-    transition: 0.3s;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
-    text-decoration: none;
-    color: black;
-    margin-right: 20px;
-    cursor: pointer;
-}
-
-.buy-to-cart1:hover {
-    background: rgb(255, 205, 69);
-    transition: 0.3s;
-}
-
-.buttons-h-v {
-    position: absolute;
-    margin-left: 170px;
-    display: inline-block;
-    width: 100px;
-    height: 40px;
-    line-height: 40px;
-    vertical-align: middle;
-    bottom: 20px;
-}
-
-.compare3 {
-    display: inline-block;
-    margin-top: 5px;
-    background-image: url(compare1.png);
-    background-size:cover;
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.wishlist3 {
-    display: inline-block;
-    top: 0;
-    background-image: url(heart1.png);
-    background-size:cover;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.parent1 h2 {
-    color: rgb(255,207,72);
-    text-shadow: 1.5px 0 black;
-    margin-top: 15px;
-    text-align: center;
-    font-size: 23px;
-}
-
-.parent1 h1 {
-    bottom: 20px;
-    text-align: center;
-    font-size: 25px;
-}
-
-.text-good {
-    position: absolute;
-    bottom: 80px;
-    justify-content: center;
-    margin-left: 27%;
-}
-
-.image-container{
-    position: relative;
-    align-items: center;
-    width: 100%;
-    height: 50%;
-}
-
-.img-good {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-#button1, #text-block {
-    height: 50px;
-    border: none;
-    outline: none;
-    float:left
-}
-
-#button1 {
-    width: 30px;
-    cursor: pointer;
-}
-
-#button2, #text-block {
-    height: 50px;
-    border: none;
-    outline: none;
-}
-
-#button2 {
-    width: 30px;
-    cursor: pointer;
-}
-
-#text-block {
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black; /* Добавляем черную обводку */
-}
-
-.quantity {
-    margin-top: 25px;
-    display: inline-block;
-    position: relative;
-}
-
-.panel {
-    margin-top: 25px;
-    display: inline-block;
-    position: relative;
-    height: 40px;
-}
-
-#product-slider-container {
-    width: 650px;
-    height: 750px;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-}
-
-.product-slider {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-}
-
-.product-slider img {
-    width: 84px;
-    height: 112px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border: 2px solid transparent;
-    overflow : hidden;
-    border-radius: 10px; /* Добавляем закругленные углы */
-    border-color: black;
-}
-
-.product-slider img.selected {
-    border-color: blue;
-}
-
-.enlarged-image {
-    flex-grow: 1;
-    background-color: #e0e0e0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-
-.enlarged-image img {
-    max-width: 100%;
-    max-height: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-img {
-    position: relative;
 }
