@@ -6,11 +6,16 @@
     <title>Регистрация по телефону</title>
 </head>
 <body>
-    <h2>Регистрация по телефону</h2>
-    <label>Номер телефона:</label>
-    <form method="post" action = "/code_input">
-        <input id="phone" name="phone" pattern="\+372[0-9]{7,8}" placeholder="+7 (XXX) XXX-XX-XX" required>
-        <button  type="register"  name="register" id="register">Зарегистрироваться</button>
-    </form>     
+    <form method="post" action="/check_login">
+        <h2>Регистрация</h2>
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Войти</button>
+    </form>
 </body>
 </html>
+

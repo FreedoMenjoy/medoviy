@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const bodyParser = require('body-parser');
 const path = require("path");
 const fs = require("fs")
 const crypto = require('crypto');
@@ -11,6 +12,8 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const secretKey = crypto.randomBytes(32).toString('hex');
 
@@ -85,7 +88,7 @@ app.get("/:role/market", async (req, res) => {
   }
 });
 
-app.post("/check_data", (req, res) => {
+app.post("/check_login", (req, res) => {
   const userPassword = req.body.password;
   const userName = req.body.username;
   const userLogin = new uL(userName, userPassword);
@@ -151,6 +154,54 @@ app.get("/:role/profile", requireAuth, (req, res) => {
     res.render("a_profile");
   }
 });
+
+app.post("/:role/profile", (req, res) => {
+    try {
+      const MongoHandler = new mongo();
+      const formType = req.body.formType;
+      if (formType == "products"){
+        var name = req.body.p_name;
+        var price = req.body.p_price;
+        var categories = req.body.p_categories;
+        var description = req.body.p_description;
+        var compound = req.body.p_compound;
+        var EValue = req.body.p_EValue;
+        var proteins = req.body.p_proteins;
+        var carbs = req.body.p_carbs;
+        var fats = req.body.p_fats;
+        var suitability = req.body.p_suitability;
+        var mass = req.body.p_mass;
+        var photos = req.body.photos;
+        var goods = req.body.p_goods || null;
+        var cooking = req.body.p_cooking || null ;
+
+        MongoHandler.addProduct(
+          productName = name,
+          productPrice = price,
+          productCategories = categories,
+          productDescription = description,
+          productCompound = compound,
+          productEnergeticValue = EValue,
+          productProtein = proteins,
+          productFats = fats,
+          productCarbs = carbs,
+          productSuitability = suitability,
+          productMass = mass,
+          productPhotos = photos,
+          productGoods = goods,
+          productCooking = cooking
+        )
+        .then(() => {
+          res.json({ success: true, message: "Data received successfully." });
+        })
+      } else {
+        res.status(400).send("Wrong data");
+      }
+    } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+}
+})
 
 app.get('/:role/settings', async (req, res) => {
      if (req.session.userRole === 'a') {

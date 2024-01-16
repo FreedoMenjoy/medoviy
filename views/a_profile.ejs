@@ -31,76 +31,114 @@
     <title>Медовый Папа</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/styles/profile.css" type="text/css">
-    <link rel="icon" href="/logo.png" type="image/x-icon">
+    <link rel="icon" href="/pictures/logo.png" type="image/x-icon">
 </head>
 <body>
     <%- include('blocks/header') -%>
     <%- include('blocks/upward') -%>
+    <div class="modal-pa" id="modal-pa">
+        <span class="close-pa" onclick="closePA()">&times;</span>
+        <form class = "inputs-pa" id = "products-form" method="post" enctype="multipart/form-data">
+            <label for="p_name">Имя продукта:</label>
+            <input class = "input-pa"  type="text" id = "p_name" name = "p_name" required>
+
+            <label class = "input-pa-label" for="p_price">Цена:</label>
+            <input class = "input-pa"  type="text" id = "p_price" name = "p_price" required>
+
+            <label class = "input-pa-label" for="p_description">Описание:</label>
+            <input class = "input-pa"  type="text" id = "p_description" name = "p_description" required>
+
+            <label class = "input-pa-label" for="p_categories">Категории:</label>
+            <input class = "input-pa"  type="text" id = "p_categories" name = "p_categories" required>
+
+            <label class = "input-pa-label"  for="p_compound">Состав:</label>
+            <input class = "input-pa"  type="text" id = "p_compound" name = "p_compound" required>
+
+            <label class = "input-pa-label" for="p_proteins">Белки(г):</label>
+            <input class = "input-pa"  type="text" id = "p_proteins" name = "p_proteins" required>
+
+            <label class = "input-pa-label" for="p_carbs">Углеводы(г):</label>
+            <input class = "input-pa"  type="text" id = "p_carbs" name = "p_carbs" required>
+
+            <label class = "input-pa-label" for="p_fats">Жиры(г):</label>
+            <input class = "input-pa"  type="text" id = "p_fats" name = "p_fats" required>
+
+            <label class = "input-pa-label" for="p_EValue">Энергетическая ценность:</label>
+            <input class = "input-pa"  type="text" id = "p_EValue" name = "p_EValue" required>
+
+            <label class = "input-pa-label" for="p_Suitability">Срок годности:</label>
+            <input class = "input-pa"  type="text" id = "p_Suitability" name = "p_suitability" required>
+
+            <label class = "input-pa-label" for="p_Mass">Масса нетто(г):</label>
+            <input class = "input-pa" type="text" id = "p_Mass" name = "p_mass" required>
+
+            <label class = "input-pa-label" for="p_photos">Фотографии:</label>
+            <input class = "input-pa"  type="text" id = "p_photos" name = "p_photos">
+
+            <label class = "input-pa-label" for="p_goods">Полезные свойства:</label>
+            <input class = "input-pa"  type="text" id = "p_goods" name = "p_goods">
+
+            <label class = "input-pa-label" for="p_cooking">Способ приготовления:</label>
+            <input class = "input-pa"  type="text" id = "p_cooking" name = "p_cooking">
+        </form>
+        <button class = "submit-pa" onclick = "submitProductsForm()">Добавить</button>
+    </div>
     <div class="container4">
         <div class="con4">
             <div class="a_menu">
                 <div class="buttons-menu">
                     <p class="text-a">Профиль</p>
                     <a class="profile1" onclick="setActive('con-block-settings')">
-                        
                         <p><ion-icon name="person-circle-outline" class="display"></ion-icon>Мой профиль</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <p class="text-a">Работа с клиентами</p>
                     <a class="profile1" onclick="setActive('con-block-order')">
-                        
                         <p><ion-icon name="cube-outline" class="display"></ion-icon>Заказы</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <a class="profile1" onclick="setActive('con-block-rates')">
-                        
                         <p><ion-icon name="star-outline" class="display"></ion-icon>Отзывы</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <a class="profile1" onclick="setActive('con-block-questions')">
-                        
                         <p><ion-icon name="help-circle-outline" class="display"></ion-icon>Вопросы</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <p class="text-a">Настройки</p>
                     <a class="profile1" onclick="setActive('con-block-category')">
-                        
                         <p><ion-icon name="folder-outline" class="display"></ion-icon>Категории</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <a class="profile1" onclick="setActive('con-block-undercategory')">
-                        
                         <p><ion-icon name="folder-open-outline" class="display"></ion-icon>Подкатегории</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <a class="profile1" onclick="setActive('con-block-goods')">
-                        
                         <p><ion-icon name="list-outline" class="display"></ion-icon>Товары</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <a class="profile1" onclick="setActive('con-block-photos')">
-                        
                         <p><ion-icon name="images-outline" class="display"></ion-icon>Фотографии</p>
                     </a>
                 </div>
                 <div class="buttons-menu">
                     <p class="text-a">Аналитика</p>
                     <a class="profile1" onclick="setActive('con-block-analitic')">
-                        
                         <p><ion-icon name="stats-chart-outline" class="display"></ion-icon>Аналитика</p>
                     </a>
                 </div>
             </div>
             <div class="con-block-all">
-                <div id="con-block-settings" class="con-block-hv active">
-                    
+                <div id="con-block-settings" class="con-block-hv">
+                    <p></p>
                 </div>
                 <div id="con-block-order" class="con-block-hv">
                     <p></p>
@@ -130,7 +168,7 @@
                     </div>
                 </div>
                 <div id="con-block-undercategory" class="con-block-hv">
-                    <button>
+                    <button >
                         Добавить
                     </button>
                     <div class="category-info">
@@ -147,8 +185,8 @@
                         <ion-icon name="pencil-outline" class="bin"></ion-icon>
                     </div>
                 </div>
-                <div id="con-block-goods" class="con-block-hv">
-                    <button>
+                <div id="con-block-goods" class="con-block-hv active">
+                    <button onclick="openPA()">
                         Добавить
                     </button>
                     <div class="category-info">
@@ -190,7 +228,9 @@
         }
     }
     </script>
+<script src="/scripts/upward.js"></script>
 <script src="/scripts/search.js"></script>
+<script src="/scripts/addProduct.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <%- include('blocks/footer') -%>

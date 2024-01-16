@@ -39,9 +39,38 @@
     <div class="container-shop">
         
         <div class="catalog"> <!--Не забыть подключить каждый товар к поиску (хедер)-->
-            <div class="filter-price"></div> <!--Сортировка по цене (пользователь выставляет сам цену https://woodmart.xtemos.com/shop/?per_row=3&shop_view=grid)-->
+            <div class="filter-price">
+                <v-select
+                    :selected:="selected"
+                    :options:="categories"
+                    @select="sortByCategories"
+                >
+                <div class="range-slider">
+                    <input type="range" min="0" max="1000" step="10" v-model.number="">
+                </div>
+            </div> <!--Сортировка по цене (пользователь выставляет сам цену https://woodmart.xtemos.com/shop/?per_row=3&shop_view=grid)-->
+            <hr>
             <div class="filter-category"> <!--Сортировка по категориям (продавец может создавать категории и добавлять буда товар)-->
-
+                <h2>Категории</h2>
+                <div class="category-line">
+                    <ul>
+                        <li>Напитки</li>
+                        <li>Узвар</li>
+                        <li>Мёд
+                            <input type="checkbox" id="hd-1" class="hide"/>
+                            <label for="hd-1" >Мёд</label>
+                            <div class="under-caregory">
+                                <ul>
+                                    <li>Липовый</li>
+                                    <li>Цветочный</li>
+                                    <li>Еловый</li>
+                                </ul>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <hr>
             </div> 
             <div class="product-status"> <!--Статус "В продаже" и "В наличии"-->
 
@@ -49,19 +78,28 @@
         </div>
         <div class="goods">
             <div class="sort"> <!--Сортировка по: Дефолт (как составлял продавец), популярности, лучший рейтинг, последние добавления, по цене: с низкой до высокой и наоборот-->
-            
+                <form action="">
+                    <select name="" id="">
+                        <option value="">Обычная сортировка</option>
+                        <option value="">По популярности</option>
+                        <option value="">По рейтингу</option>
+                        <option value="">По возрастанию цены</option>
+                        <option value="">По убыванию цены</option>
+                    </select>
+                </form>
             </div>
             <div class="parent1">
 
             </div>
+            <div class="pages-container">
+                <li class="pages-button" onclick="nextPage(-1)">&#10094;</li>
+                <ul class="pages">
+    
+                </ul>
+                <li class="pages-button" onclick="nextPage(1)">&#10095;</li>
+            </div>
         </div>
-        <div class="pages-container">
-            <li class="pages-button" onclick="nextPage(-1)">&#10094;</li>
-            <ul class="pages">
-
-            </ul>
-            <li class="pages-button" onclick="nextPage(1)">&#10095;</li>
-        </div>
+        
     </div>
 <script src="/scripts/products-manager.js"></script>
 <script>

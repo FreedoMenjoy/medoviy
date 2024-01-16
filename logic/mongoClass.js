@@ -24,7 +24,6 @@ class MongoHandler {
     productCategories,
     productDescription,  
     productCompound, 
-    productValue, 
     productEnergeticValue, 
     productProtein, 
     productFats, 
@@ -43,7 +42,6 @@ class MongoHandler {
         categories : productCategories,
         description: productDescription,
         compound: productCompound,
-        value: productValue,
         energeticValue: productEnergeticValue,
         protein: productProtein,
         fats: productFats,
@@ -61,9 +59,9 @@ class MongoHandler {
     await this.insertData({id : await this.generateId(), name : username , password : userpassword, role : user_role, phone: user_phone, userdata : user_data});
   }
 
-  async addCategory(username, userpassword, user_role, user_phone = null, user_data = null){
-    await this.connect("users");
-    await this.insertData({id : await this.generateId(), name : username , password : userpassword, role : user_role, phone: user_phone, userdata : user_data});
+  async addCategory(name, power, subcategories = null){
+    await this.connect("categories");
+    await this.insertData({id : await this.generateId(), name : name , power : power, subcategories : subcategories});
   }
 
   async updateData(collectionName, filter, update) {
@@ -82,7 +80,6 @@ class MongoHandler {
   async insertData(data) {
     try {
       const result = await this.collection.insertOne(data);
-      console.log(`Данные успешно вставлены. ID вставленного документа: ${result.insertedId}`);
     } catch (err) {
       console.error('Ошибка при вставке данных:', err);
     } finally {
@@ -93,7 +90,6 @@ class MongoHandler {
   async deleteData(query) {
     try {
       const result = await this.collection.deleteOne(query);
-      console.log(`Удалено ${result.deletedCount} документов`);
     } catch (err) {
       console.error('Ошибка при удалении данных:', err);
     } finally {
@@ -127,6 +123,20 @@ class MongoHandler {
     }
   }
 
+  async getProductAndCategories(collectionName) {
+    await this.connect(collectionName);
+  
+    try {
+      const result = await this.collection.find({}, { projection: { id: 1, category: 1 } }).toArray();
+      return result;
+    } catch (err) {
+      console.error('Ошибка при получении данных:', err);
+    } finally {
+      this.client.close();
+    }
+  }
+  
+
   async generateId() {
     let generatedId;
     do {
@@ -150,6 +160,20 @@ class MongoHandler {
     });
 
     return result;
+  }
+
+  filterProductsByDictionary(productCategoryDict, productList) {
+    const filteredProducts = productList.filter(product => {
+      const productId = product.id;
+      const productCategories = product.categories;
+
+      if (productCategoryDict.hasOwnProperty(productId)) {
+        return productCategoryDict[productId].some(category => productCategories.includes(category));
+      }
+      return false;
+    });
+
+    return filteredProducts;
   }
 
 }

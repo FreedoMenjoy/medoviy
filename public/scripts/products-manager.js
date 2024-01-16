@@ -3,7 +3,7 @@ let productLink = [];
 let productPrice = [];
 let productPhoto = [];
 let nowPage = 1;
-const productsPerPage = 1;
+const productsPerPage = 12;
 
 function setLists(data) {
     if (data) {
@@ -70,7 +70,7 @@ function setPages() {
     const pages = document.querySelector('.pages');
     pages.innerHTML = '';
     const totalPages = Math.ceil(productName.length / productsPerPage);
-    if (totalPages > 4) {
+    if (totalPages > 5) {
         const halfPages = Math.ceil(totalPages / 2);
         const showToMost = nowPage > halfPages;
         if (nowPage == 1 || nowPage == totalPages){
@@ -89,7 +89,7 @@ function setPages() {
             }
         }
         else {
-            if (nowPage - 2 >= 1 && nowPage + 2 <= totalPages  && totalPages > 12) {
+            if (nowPage - 2 >= 1 && nowPage + 2 <= totalPages) {
                 addLI(pages, 1)
                 pages.innerHTML += `<li class="pages-dots">...</li>`;
                 addLI(pages, nowPage - 1)
