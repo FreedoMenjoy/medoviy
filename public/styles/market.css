@@ -222,14 +222,20 @@
 }
 
 .catalog {
+    position: relative;
     border: 1px solid black;
     border-radius: 5px;
     width: 25%;
-    height: auto;
+    height: 100%;
     margin-left: 7%;
     margin-top: 150px;
     display: inline-block;
-    position: relative;
+}
+
+.filter-category {
+    height: 100px;
+    position: relative; 
+    white-space: normal;
 }
 
 .hide {
