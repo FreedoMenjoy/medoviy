@@ -6,7 +6,21 @@
             <ul class="navigation">
                 <li><a href="/">Главная</a></li>
                 <li><a id="productsLink" href="#">Товары</a></li>
-                <li class="login active"><a href="/login">Войти</a></li> 
+                <li class="login active"><a href="#win1">Войти</a></li> 
+                <a href="#x" class="overlay" id="win1"></a>
+                <div class="popup">
+                    <form method="post" action="/check_login">
+                        <h2>Регистрация</h2>
+                        <label for="username">Имя пользователя:</label>
+                        <input type="text" id="username" name="username" required>
+                
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                
+                        <button type="submit">Войти</button>
+                    </form>
+                    <a class="close"title="Закрыть" href="#close"></a>
+                </div>
             </ul>
             <div class="navigation1">
                 <li><a id="profileLink" href="#"><ion-icon name="person-outline" class="profile"></ion-icon></a></li>
@@ -76,4 +90,34 @@
                 });
             }
     </script>
+    <!-- <script>
+        var profiles = document.querySelectorAll(".profile");
+        var searchBox = document.querySelectorAll(".searchBox");
+
+        if (role == "guest") {
+                profiles.forEach(profiles => {
+                    if (!profile.classList.contains("hide")) {
+                        profile.classList.add("hide");
+                    }
+                });
+
+                searchBox.forEach(profile => {
+                    if (searchBox.classList.contains("active")) {
+                        searchBox.classList.add("active");
+                    }
+                });
+            } else {
+                profiles.forEach(profiles => {
+                    if (!profile.classList.contains("hide")) {
+                        profile.classList.remove("hide");
+                    }
+                });
+
+                searchBox.forEach(profile => {
+                    if (searchBox.classList.contains("active")) {
+                        searchBox.classList.remove("active");
+                    }
+                });
+            }
+    </script> -->
 </header>
