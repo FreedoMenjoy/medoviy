@@ -394,3 +394,19 @@ li {
 }
 /* параграфы */
 .popup p {margin: 0; padding: 5px 0}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form button {
+    display: block;
+    margin-top: 10px;
+}
+
+
+form {
+    width: 30%;
+    margin: 0 auto;
+}
