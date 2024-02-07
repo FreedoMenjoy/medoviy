@@ -227,16 +227,18 @@ li {
 .navigation {
     margin-left: 30px;
 }
-@media (max-width: 860px) {
+@media (max-width: 877px) {
     .logo {
         font-size: 1.18em;
     font-weight: 700;
     }
 }
 @media (max-width: 800px) {
+
     .searchBtn {
         left: 0;
     }
+
 
     .menuToggle {
         position: absolute;
@@ -276,9 +278,11 @@ li {
         display: none;
     }
     .navigation1 {
+        margin-right: 20px;
         display: flex;
         padding-left: 20px;
     }
+
 }
 
 
