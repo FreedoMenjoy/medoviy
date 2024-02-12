@@ -1,7 +1,36 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="keywords" content="
+        медовыйпапа
+        медовый папа
+        honey
+        honey father 
+        сахар
+        мёд
+        Медовый
+        мед
+        натуральный 
+        свежий
+        новый 
+        качественный 
+        хороший 
+        вкусный 
+        дешевый 
+        мытищи 
+        лучший 
+        вкусный
+        приятный
+        подарок
+        сладость
+        детям
+        взрослым ">
+<link rel="icon" href="/pictures/logo.png" type="image/x-icon">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/styles/header.css">
 <header>
-    <div class="menu">
-        <a href="/" class="logo"> Медовый Папа<!-- <img src="logo.png" alt="logo"> --> </a>
+    <!--<div class="menu">
+        <a href="/" class="logo"> Медовый Папа<!-- <img src="logo.png" alt="logo"> --> <!--</a>
         <div class="group">
             <ul class="navigation">
                 <li><a href="/">Главная</a></li>
@@ -24,9 +53,9 @@
             </ul>
             <div class="navigation1">
                 <li><a id="profileLink" href="#"><ion-icon name="person-outline" class="profile"></ion-icon></a></li>
-                <li><a href="#"><ion-icon name="git-compare-outline" class="compare"></ion-icon></a></li>
-                <li><a href="#"><ion-icon name="heart-outline" class="favorite"></ion-icon></a></li>
-                <li><a href="#"><ion-icon name="cart-outline" class="cart"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="git-compare-outline" class="compare-h"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="heart-outline" class="favorite-h"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="cart-outline" class="cart-h"></ion-icon></a></li>
             </div>
             <div class="search">
                 <span class="icon">
@@ -40,6 +69,78 @@
             </div>
         </div>
     </div>
+    -->
+    <a href="/" class="logo">Медовый Папа</a>
+    <div class="group">
+        <ul class="navigation">
+            <li class="vertical"><a href="/" class="trans-none1">Главная</a></li>
+            <li class="vertical"><a id="productsLink" href="#" class="trans-none1">Товары</a></li>
+            <li class="vertical login active"><a href="#win1" class="trans-none1">Войти</a></li>
+            <a href="#x" class="overlay" id="win1"></a>
+            <div class="popup">
+                <div class="container-reg">
+                    <div class="tabs-reg">
+                        <div id="btn-reg"></div>
+                        <button type="button" class="toggle-btn-reg" onclick="login()">Войти</button>
+                        <button type="button" class="toggle-btn-reg1" onclick="registration()">Регистрация</button>
+                    </div>
+
+                
+                    <form method="post" action="/check_login" id="login-reg" class="form-reg">
+                        <input type="text" id="username" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
+                        <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
+                        <input type="checkbox" class="check-box-reg c3 password-control" onclick="return show_hide_password(this);">
+                        <button type="button" class="b-reg" onclick="forgot()">Забыли пароль?</button>
+                        <input type="checkbox" class="check-box-reg c1">
+                        <button type="submit" class="submit-btn-reg">Войти</button>
+                    </form>
+                
+                    <form id="register-reg" class="form-reg">
+                        <input type="text" id="username" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
+                        <input type="email" class="input-filed-reg" autocomplete="off" placeholder="Почта">
+                        <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
+                        <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Повторить пароль" required >
+                        <input type="checkbox" class="check-box-reg c2">
+                        <button type="submit" class="submit-btn-reg">Зарегистрироваться</button>
+                    </form>
+
+                    <form id="forgot-password" class="form-reg">
+                        
+                        <input type="email" class="input-filed-reg" autocomplete="off" placeholder="Почта">
+                        <button type="submit" class="submit-btn-reg">Отправить</button>
+                        
+                    </form>
+                </div>
+                <!-- <h2>Вход / Регистрация</h2>
+                <form method="post" action="/check_login">
+                        <label for="username">Логин:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    <button class="b-reg" type="submit">Забыли пароль?</button>
+                    <button class="b-reg" type="submit">Войти</button>
+                    <button class="b-reg">Зарегистрироваться</button>
+                </form> -->
+                <a class="close"title="Закрыть" href="#close"></a>
+            </div>  
+            <li class="profile"><a id="profileLink" href="#" class="profile-h1 trans-none"><ion-icon name="person-outline" class="profile-h"></ion-icon></a></li>
+            <li><a href="#" class="trans-none compare-h"><ion-icon name="git-compare-outline" class="icons-nav"></ion-icon></a></li>
+            <li><a href="#" class="trans-none favorite-h"><ion-icon name="heart-outline" class="icons-nav"></ion-icon></a></li>
+            <li><a href="#" class="trans-none cart-h"><ion-icon name="cart-outline" class="icons-nav"></ion-icon></a></li>
+        </ul>
+        <div class="search">
+            <span class="icon">
+                <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+                <ion-icon name="close-circle-outline" class="closeBtn"></ion-icon>
+            </span>
+        </div>
+        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+    </div>
+    <div class="searchBox">
+        <input type="text" placeholder="Ищи тут...">
+    </div>
+    <script src="/scripts/search.js"></script>
     <script>
         function extractRoleFromUrl(url) {
             var urlWithoutFragment = url.split('#')[0];
@@ -96,5 +197,49 @@
                     }
                 });
             }
+    </script>
+    <script>
+        var logIn = document.getElementById("login-reg");
+        var register = document.getElementById("register-reg");
+        var forgotpassword = document.getElementById("forgot-password");
+        var button = document.getElementById("btn-reg");
+        var logreg = document.getElementById("tabs-reg");
+    
+        function registration() {
+            logIn.style.left = "-400px";
+            register.style.left = "50px";
+            button.style.left = "130px";
+            forgotpassword.style.left = "450px";
+            logreg.style.left = "450px";
+        }
+    
+        function login() {
+            logIn.style.left = "50px";
+            register.style.left = "450px";
+            button.style.left = "0";
+            forgotpassword.style.left = "450px";
+            logreg.style.left = "450px";
+        }
+
+        function forgot() {
+            logIn.style.left = "450px";
+            register.style.left = "450px";
+            forgotpassword.style.left = "50px";
+            logreg.style.left = "450px";
+        }
+      </script>
+    <script>
+    function show_hide_password(target){
+	var input = document.getElementById('password');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+
     </script>
 </header>

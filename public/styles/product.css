@@ -258,3 +258,11 @@ hr {
 .product-img {
     position: relative;
 }
+
+.name {
+    width: 90%;
+}
+
+.price {
+    letter-spacing: 2px;
+}

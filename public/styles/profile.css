@@ -6,35 +6,36 @@
     visibility: visible;
 }
 
-.con4 {
+.container4 {
     margin-top: 150px;
     display: inline-block;
     width: 100%;
     height: 1000px;
 }
 
-.a_menu {
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 10%;
-    height: 54%;
-    margin-left: 7%;
-}
-
-.con-block-all {
+.con4 {
     position: relative;
     border: 1px solid black;
     border-radius: 5px;
-    width: 60%;
-    margin-right: 20%;
+    width: 65%;
+    margin-right: 5%;
     height: 100%;
     float: right;
 }
 
+.a_menu {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 18%;
+    height: 54%;
+    margin-left: 7%;
+}
+
+
 .buttons-menu {
     margin-left: 15%;
-    display: inline-block;
+    display: block;
 }
 
 .buttons-menu a {
