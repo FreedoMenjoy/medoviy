@@ -415,7 +415,14 @@ form {
     border: none;
     font-size: 14px;
     cursor: pointer;
-    color: #2a27e0
+}
+
+.b-reg1 {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 30px;
 }
 
 .container-reg {
@@ -469,7 +476,7 @@ form {
 
 
   .form-reg {
-    top: 150px;
+    top: 130px;
     position: absolute;
     width: 280px;
     transition: .5s;
@@ -498,10 +505,11 @@ form {
     border: 0;
     outline: none;
     border-radius: 30px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .check-box-reg {
+    display: block;
     margin: 20px 10px 20px 0;
   }
 
@@ -519,7 +527,8 @@ form {
     color: black;
     position: absolute;
     font-size: 14px;
-    left: 20px
+    left: 20px;
+    display: block;
 }
 
 .c3::after {
@@ -541,3 +550,36 @@ form {
   #forgot-password {
     left: 450px;
   }
+
+  #tabs-reg {
+    left: 0px;
+    transition: 0.5s;
+  }
+
+form input[type="text"] {
+    padding-left: 10px;
+}
+
+form input[type="password"] {
+    padding-left: 10px;
+}
+
+form input[type="email"] {
+    padding-left: 10px;
+}
+
+.form-reg-h2 {
+    text-align: center;;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.form-reg-p {
+    text-align: center;;
+    font-size: 14px;
+    
+}
+
+.top {
+    top: 70px
+}

@@ -79,7 +79,7 @@
             <a href="#x" class="overlay" id="win1"></a>
             <div class="popup">
                 <div class="container-reg">
-                    <div class="tabs-reg">
+                    <div class="tabs-reg" id="tabs-reg">
                         <div id="btn-reg"></div>
                         <button type="button" class="toggle-btn-reg" onclick="login()">Войти</button>
                         <button type="button" class="toggle-btn-reg1" onclick="registration()">Регистрация</button>
@@ -89,24 +89,27 @@
                     <form method="post" action="/check_login" id="login-reg" class="form-reg">
                         <input type="text" id="username" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
                         <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
-                        <input type="checkbox" class="check-box-reg c3 password-control" onclick="return show_hide_password(this);">
+                        <input type="checkbox" class="check-box-reg c3 password-control" id="checkboxs" onclick="return show_hide_password(this);">
                         <button type="button" class="b-reg" onclick="forgot()">Забыли пароль?</button>
                         <input type="checkbox" class="check-box-reg c1">
                         <button type="submit" class="submit-btn-reg">Войти</button>
                     </form>
                 
                     <form id="register-reg" class="form-reg">
-                        <input type="text" id="username" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
+                        <input type="text" id="usernamer" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
                         <input type="email" class="input-filed-reg" autocomplete="off" placeholder="Почта">
-                        <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
-                        <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Повторить пароль" required >
+                        <input type="password" id="passwordRepeat1" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
+                        <input type="password" id="passwordRepeat2" name="password" autocomplete="off" class="input-filed-reg" placeholder="Повторить пароль" required >
+                        <input type="checkbox" class="check-box-reg c3 password-control" id="checkboxss" onclick="return show_hide_password_req(this);">
                         <input type="checkbox" class="check-box-reg c2">
                         <button type="submit" class="submit-btn-reg">Зарегистрироваться</button>
                     </form>
 
-                    <form id="forgot-password" class="form-reg">
-                        
+                    <form id="forgot-password" class="form-reg top">
+                        <h2 class="form-reg-h2">Забыли пароль?</h2>
+                        <p class="form-reg-p">Пожалуйста, введите адрес электронной почты ниже для получения информации о смене пароля</p>
                         <input type="email" class="input-filed-reg" autocomplete="off" placeholder="Почта">
+                        <button type="button" class="b-reg1" onclick="back()">Вернуться к авторизации</button>
                         <button type="submit" class="submit-btn-reg">Отправить</button>
                         
                     </form>
@@ -210,36 +213,60 @@
             register.style.left = "50px";
             button.style.left = "130px";
             forgotpassword.style.left = "450px";
-            logreg.style.left = "450px";
+            logreg.style.left = "0px";
         }
     
         function login() {
             logIn.style.left = "50px";
             register.style.left = "450px";
-            button.style.left = "0";
+            button.style.left = "0px";
             forgotpassword.style.left = "450px";
-            logreg.style.left = "450px";
+            logreg.style.left = "0px";
         }
 
         function forgot() {
-            logIn.style.left = "450px";
+            logIn.style.left = "-400px";
             register.style.left = "450px";
             forgotpassword.style.left = "50px";
-            logreg.style.left = "450px";
+            logreg.style.left = "-400px";
         }
-      </script>
+
+        function back() {
+            logIn.style.left = "50px";
+            register.style.left = "450px";
+            button.style.left = "0px";
+            forgotpassword.style.left = "450px";
+            logreg.style.left = "0px";
+        }
+    </script>
     <script>
-    function show_hide_password(target){
-	var input = document.getElementById('password');
-	if (input.getAttribute('type') == 'password') {
-		target.classList.add('view');
-		input.setAttribute('type', 'text');
-	} else {
-		target.classList.remove('view');
-		input.setAttribute('type', 'password');
-	}
-	return false;
+const inputLogin = document.getElementById('password');
+const checkBox = document.getElementById("checkboxs");
+
+function show_hide_password(checkbox) {
+  if (inputLogin .getAttribute('type') === 'password') {
+    inputLogin .setAttribute('type', 'text');
+    checkBox.checked = true;
+  } else {
+    inputLogin .setAttribute('type', 'password');
+    checkBox.checked = false;
+  }
 }
 
+const input = document.getElementById('passwordRepeat1');
+const input2 = document.getElementById('passwordRepeat2');
+const checkBox2 = document.getElementById("checkboxs2");
+
+function show_hide_password_req(checkbox) {
+  if (input.getAttribute('type') === 'password') {
+    input.setAttribute('type', 'text');
+ input2.setAttribute('type', 'text');
+    checkBox2.checked = true;
+  } else {
+    input.setAttribute('type', 'password');
+ input2.setAttribute('type', 'password');
+    checkBox2.checked = false;
+  }
+} 
     </script>
 </header>
