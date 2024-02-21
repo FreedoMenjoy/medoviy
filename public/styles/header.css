@@ -347,23 +347,21 @@ header .search {
 } */
 /* параграфы */
 .close1 {
-    color: black;
+    color: rgb(128, 5, 5);
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
     margin: 0 auto;
     text-align: center;
 }
 .close2 {
-    top: 37px;
+    top: 42px;
     right: -15px;
     height: 30px;
     width: 30px;
-    background: linear-gradient(to right, rgb(255, 156, 6), rgb(255,207,72));
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
     position: absolute;
     text-align: center;
 }
+
 .popup1 p {margin: 0; padding: 5px 0}
 
 form label {
@@ -381,6 +379,7 @@ form {
 }
 
 .b-reg {
+    color: rgb(6, 51, 173);
     background: none;
     border: none;
     font-size: 14px;
@@ -388,22 +387,27 @@ form {
 }
 
 .b-reg1 {
+    color: rgb(6, 51, 173);
     background: none;
     border: none;
     font-size: 14px;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .container-reg {
     width: 400px;
-    height: 480px;
     position: relative;
     margin: 6% auto;
     background: #fff;
     padding: 5px;
     overflow: hidden;
   }
+
+#container-reg {
+    height: 480px;
+    transition: 0.5s;
+}
 
   .tabs-reg {
     width: 280px;
@@ -509,19 +513,27 @@ form {
 }
 
   #login-reg {
-    left: 50px;
+    left: 60px;
   }
 
   #register-reg {
     left: 450px;
   }
   #forgot-password {
-    left: 450px;
+    left: -400px;
   }
 
   #tabs-reg {
     left: 0px;
     transition: 0.5s;
+  }
+
+  #code-reg {
+    left: -400px;
+  }
+
+  #code-forgot {
+    left: -400px;
   }
 
 form input[type="text"] {
@@ -550,4 +562,42 @@ form input[type="email"] {
 
 .top {
     top: 70px
+}
+
+.wrong.active {
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 8px;
+    background: rgba(255, 0, 0, 0.466);
+    color: rgb(87, 4, 4);
+    border-left: 2px solid rgb(185, 18, 18);
+    border-right: 2px solid rgb(185, 18, 18);
+    visibility: visible;
+    position: relative;
+}
+
+.wrong {
+    visibility: hidden;
+    position: absolute;
+}
+
+.complete.active {
+    z-index: 20;
+    font-size: 20px;
+    margin-left: 10px;
+    padding: 14px;
+    right: 0;
+    bottom: 150px;
+    width: 330px;
+    background: rgba(30, 255, 0, 0.466);
+    color: rgb(4, 87, 18);
+    border-left: 2px solid rgb(18, 185, 40);
+    border-right: 2px solid rgb(18, 185, 40);
+    visibility: visible;
+    position: fixed;
+}
+
+.complete {
+    visibility: hidden;
+    position: absolute;
 }
