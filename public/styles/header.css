@@ -404,6 +404,7 @@ form {
     overflow: hidden;
   }
 
+
 #container-reg {
     height: 480px;
     transition: 0.5s;
@@ -452,6 +453,9 @@ form {
     position: absolute;
     width: 280px;
     transition: .5s;
+  }
+  .form-reg.scroll {
+    overflow-y: scroll !important;
   }
 
   .input-filed-reg {

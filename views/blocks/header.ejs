@@ -86,7 +86,7 @@
                     </div>
 
                 
-                    <form method="post" action="/check_login" id="login-reg" class="form-reg">
+                    <form method="post" action="/check_login" id="login-reg" class="form-reg ">
                         <input type="text" id="username" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
                         <input type="password" id="password" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
                         <p class="wrong ">Неверный логин или пароль</p>
@@ -96,7 +96,7 @@
                         <button type="submit" class="submit-btn-reg">Войти</button>
                     </form>
                 
-                    <form id="register-reg" class="form-reg">
+                    <form id="register-reg" class="form-reg scroll">
                         <input type="text" id="usernamer" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
                         <input type="email" class="input-filed-reg" autocomplete="off" placeholder="Почта">
                         <input type="password" id="passwordRepeat1" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
@@ -104,7 +104,7 @@
                         <p class="wrong ">Такой логин уже существует</p>
                         <p class="wrong ">Такая почта уже зарегистрирована</p>
                         <p class="wrong ">Пароли не совпадают</p>
-                        <p class="wrong ">Имя пользователя может содержать буквы латинского алфавита (a–z), цифры (0–9) и точки (.)</p>
+                        <p class="wrong active">Имя пользователя может содержать буквы латинского алфавита (a–z), цифры (0–9) и точки (.)</p>
                         <input type="checkbox" class="check-box-reg c3 password-control" id="checkboxss" onclick="return show_hide_password_req(this);">
                         <input type="checkbox" class="check-box-reg c2">
                         <button type="submit" class="submit-btn-reg" onclick="codereg()">Зарегистрироваться</button>
@@ -241,7 +241,7 @@
             logreg.style.left = "0px";
             coderegs.style.left = "-400px";
             codeforgots.style.left = "-400px";
-            conreg.style.height = "570px"
+            conreg.style.height = "480px"
         }
     
         function login() {
@@ -328,4 +328,4 @@ function show_hide_password_req(checkbox) {
     </script>
 </header>
 <p class="complete ">Успешная авторизация</p>
-<p class="complete active">Успешная регистрация</p>
+<p class="complete ">Успешная регистрация</p>
