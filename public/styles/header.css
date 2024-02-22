@@ -455,7 +455,9 @@ form {
     transition: .5s;
   }
   .form-reg.scroll {
-    overflow-y: scroll !important;
+    /* overflow-y: scroll !important; */
+    overflow-y: auto !important;
+    max-height: 65%;
   }
 
   .input-filed-reg {
