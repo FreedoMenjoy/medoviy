@@ -74,7 +74,7 @@ function setPages() {
         const halfPages = Math.ceil(totalPages / 2);
         const showToMost = nowPage > halfPages;
         if (nowPage == 1 || nowPage == totalPages){
-            if (nowPage == 1){
+            if (nowPage == 1){  
                 pages.innerHTML += `<li class="pages-current-page"">${nowPage}</li>`;
                 addLI(pages, nowPage + 1)
                 addLI(pages, nowPage + 2)
@@ -89,7 +89,7 @@ function setPages() {
             }
         }
         else {
-            if (nowPage - 2 >= 1 && nowPage + 2 <= totalPages) {
+            if (nowPage - 1 > 1 && nowPage + 1 < totalPages) {
                 addLI(pages, 1)
                 pages.innerHTML += `<li class="pages-dots">...</li>`;
                 addLI(pages, nowPage - 1)

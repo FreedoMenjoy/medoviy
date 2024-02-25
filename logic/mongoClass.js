@@ -1,9 +1,11 @@
 const { MongoClient } = require('mongodb');
+const config = require("./config.js")
+
 
 class MongoHandler {
   constructor() {
     this.dbName = "honeyfather";
-    this.client =  new MongoClient("mongodb://127.0.0.1:27017"); 
+    this.client =  new MongoClient(config["MONGO_URI"]); 
     this.collection = null;
   }
 
@@ -64,6 +66,11 @@ class MongoHandler {
     await this.insertData({id : await this.generateId(), name : name , power : power, subcategories : subcategories});
   }
 
+  async addRegistartion(email, code, login, password){
+    await this.connect("registrations");
+    await this.insertData({email : email , code : code, login : login, password: password});
+  }
+
   async updateData(collectionName, filter, update) {
     await this.connect(collectionName);
 
@@ -87,13 +94,15 @@ class MongoHandler {
     }
   }
 
-  async deleteData(query) {
+  async deleteData(query, collectionName) {
+    await this.connect(collectionName);
+
     try {
       const result = await this.collection.deleteOne(query);
     } catch (err) {
       console.error('Ошибка при удалении данных:', err);
     } finally {
-      this.client.disconnect();
+      this.client.close();
     }
   }
 

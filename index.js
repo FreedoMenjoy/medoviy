@@ -2,18 +2,32 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require('body-parser');
 const path = require("path");
+const multer = require('multer');
 const fs = require("fs")
 const crypto = require('crypto');
-const uL = require("./logic/userLogin");
-const mongo = require("./logic/mongoClass")
+const UserLogin = require("./logic/userLogin");
+const MongoClass  = require("./logic/mongoClass")
+const EmailRegister  = require("./logic/emailRegister")
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'public/product_photos/');
+  },
+  filename: (req, file, cb) => {
+      cb(null, file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
+
 
 const secretKey = crypto.randomBytes(32).toString('hex');
 
@@ -54,12 +68,8 @@ app.get("/:role", requireAuth, (req, res) => {
     res.render("index");
 });
 
-app.get("/:role/coop",  (req, res) => {
-  res.render("coop");
-});
-
 app.get("/:role/market", async (req, res) => {
-  const MongoHandler = new mongo();
+  const MongoHandler = new MongoClass();
   try {
     const allProductsData = await MongoHandler.getAllData("products");
 
@@ -95,7 +105,7 @@ app.get("/:role/market", async (req, res) => {
 app.post("/check_login", (req, res) => {
   const userPassword = req.body.password;
   const userName = req.body.username;
-  const userLogin = new uL(userName, userPassword);
+  const userLogin = new UserLogin(userName, userPassword);
   userLogin
     .allCheck()
     .then((check) => {
@@ -109,9 +119,30 @@ app.post("/check_login", (req, res) => {
     })
 });
 
+app.post("/reg", upload.none(), async (req, res) => {
+  const userName = req.body.username;
+  const userEmail = req.body.email;
+  const userPassword = req.body.password;
+
+  const eReg = new EmailRegister(userName, userPassword, userEmail);
+  try {
+    const error = await eReg.checkData();
+    if (error === null) {
+      req.session.email = userEmail;
+      res.status(200).json({success : true});
+      eReg.sendCode();
+    } else {
+      res.status(400).json({ message: error });
+    }
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({success : false});
+  }
+});
+
 app.get('/:role/product_page/:id', async (req, res) => {
   const productId = req.params.id;
-  const MongoHandler = new mongo();
+  const MongoHandler = new MongoClass();
 
   try {
       const htmlFilePath = path.join(__dirname, '/views/product.ejs');
@@ -131,7 +162,7 @@ app.get('/:role/product_page/:id', async (req, res) => {
                       productCarbs: product.carbs,
                       productSuitability: product.suitability,
                       productMass: product.mass,
-                      productPhotos: product.photos.split(" "),
+                      productPhotos: product.photos,
                       productGoods: product.goods,
                       productCooking: product.cooking,
                       projectPath : process.cwd()
@@ -159,25 +190,43 @@ app.get("/:role/profile", requireAuth, (req, res) => {
   }
 });
 
-app.post("/:role/profile", (req, res) => {
+app.post("/:role/profile" ,upload.array('files'),(req, res) => {
     try {
-      const MongoHandler = new mongo();
+      console.log("Ich bin working")
+      const MongoHandler = new MongoClass();
       const formType = req.body.formType;
+      const files = req.body.files;
+      console.log(req)
+      console.log(req.body)
+      files.forEach(file => {
+        const imageData = file.data;
+        const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
+        const imageBuffer = Buffer.from(base64Data, 'base64');
+        fs.writeFile(savePath, imageBuffer, function(err) {
+            if (err) {
+                console.error('Error saving image:', err);
+            } else {
+                console.log('Image saved successfully at:', savePath);
+            }
+        });
+      });
+      console.log(files)
+      console.log(typeof files); 
       if (formType == "products"){
-        var name = req.body.p_name;
-        var price = req.body.p_price;
-        var categories = req.body.p_categories;
-        var description = req.body.p_description;
-        var compound = req.body.p_compound;
-        var EValue = req.body.p_EValue;
-        var proteins = req.body.p_proteins;
-        var carbs = req.body.p_carbs;
-        var fats = req.body.p_fats;
-        var suitability = req.body.p_suitability;
-        var mass = req.body.p_mass;
-        var photos = req.body.photos;
-        var goods = req.body.p_goods || null;
-        var cooking = req.body.p_cooking || null ;
+        const name = req.body.p_name;
+        const price = req.body.p_price;
+        const categories = req.body.p_categories;
+        const description = req.body.p_description;
+        const compound = req.body.p_compound;
+        const EValue = req.body.p_EValue;
+        const proteins = req.body.p_proteins;
+        const carbs = req.body.p_carbs;
+        const fats = req.body.p_fats;
+        const suitability = req.body.p_suitability;
+        const mass = req.body.p_mass;
+        const photos = req.body.p_photos;
+        const goods = req.body.p_goods || null;
+        const cooking = req.body.p_cooking || null ;
 
         MongoHandler.addProduct(
           productName = name,
@@ -213,7 +262,7 @@ app.get('/:role/settings', async (req, res) => {
     } else {
       res.status(403).send('У вас нет доступа к этой странице');
     }
-  });
+});
 
 const PORT = 3000;
 

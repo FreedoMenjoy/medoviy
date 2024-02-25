@@ -30,7 +30,7 @@
         взрослым ">
     <title>Медовый Папа</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/profile.css" type="text/css">
+    <link rel="stylesheet" href="/styles/a_profile.css" type="text/css">
     <link rel="icon" href="/pictures/logo.png" type="image/x-icon">
 </head>
 <body>
@@ -73,7 +73,9 @@
             <input class = "input-pa" type="text" id = "p_Mass" name = "p_mass" required>
 
             <label class = "input-pa-label" for="p_photos">Фотографии:</label>
-            <input class = "input-pa"  type="text" id = "p_photos" name = "p_photos">
+            <input class = "input-pa" type="file" id = "p_photos" name = "p_photos" multiple accept=".jpg, .jpeg, .png">
+            <li id = "image-name-container">
+            </li>
 
             <label class = "input-pa-label" for="p_goods">Полезные свойства:</label>
             <input class = "input-pa"  type="text" id = "p_goods" name = "p_goods">
@@ -143,6 +145,7 @@
         <div class="con4">
             <div class="con-block-all">
                 <div id="con-block-settings" class="con-block-hv">
+                    <button class="logout">Выйти</button>
                     <p></p>
                 </div>
                 <div id="con-block-order" class="con-block-hv">
@@ -239,6 +242,7 @@
 <script src="/scripts/upward.js"></script>
 <script src="/scripts/search.js"></script>
 <script src="/scripts/addProduct.js"></script>
+<script src="/scripts/imagesList.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <%- include('blocks/footer') -%>
