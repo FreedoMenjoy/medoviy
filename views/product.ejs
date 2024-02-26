@@ -40,13 +40,6 @@
         <div class="con-shop">
             <div class="list-photo"> <!--Слайдер фотографий (бесконечное добавление фотографий (ограничение на 10)) как на вб https://www.wildberries.ru/catalog/13641482/detail.aspx-->
                 <div id="product-slider-container">
-                    <div class="product-slider" id="product-slider">
-                        <% productPhotos.forEach((photo, index) => { %>
-                            <div class = "product-image-cover">
-                                <img class="product-img" src="<%= photo %>" onclick="changeImage('<%= photo %>', this)">
-                            </div>
-                        <% }); %>
-                    </div>
                     <div class="enlarged-image" id="enlarged-image">
     
                     </div>
@@ -104,8 +97,6 @@
     </div>
 <script src="/scripts/slider-product.js"></script>
 <script src="/scripts/search.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <%- include('blocks/footer') -%>
 </body>
 </html>

@@ -68,6 +68,14 @@ app.get("/:role", requireAuth, (req, res) => {
     res.render("index");
 });
 
+app.get("/:role/coop", (req, res) => {
+  res.render("coop");
+});
+
+app.get("/:role/terms", (req, res) => {
+  res.render("terms");
+});
+
 app.get("/:role/market", async (req, res) => {
   const MongoHandler = new MongoClass();
   try {
