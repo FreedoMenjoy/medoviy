@@ -333,21 +333,10 @@ header .search {
     top: 20%;
 }
 
-/* .popup h2 {
-    margin: 0;
-    color: rgb(255,207,72);
-    text-shadow: 1.5px 0 black;
-    margin-bottom: 10px;
-    padding: 5px 0px 10px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 1.4em;
-    font-family: 'Tahoma', Arial, sans-serif;
-    line-height: 1.3;
-} */
 /* параграфы */
 .close1 {
     color: rgb(128, 5, 5);
+    font-weight: bold;
     text-decoration: none;
     font-size: 20px;
     margin: 0 auto;
@@ -615,7 +604,7 @@ form input[type="email"] {
     position: absolute;
 }
 
-.complete.active {
+.complete_reg.active {
     z-index: 20;
     font-size: 20px;
     margin-left: 10px;
@@ -631,12 +620,33 @@ form input[type="email"] {
     position: fixed;
 }
 
-.complete {
+.complete_auth.active {
+    z-index: 20;
+    font-size: 20px;
+    margin-left: 10px;
+    padding: 14px;
+    right: 0;
+    bottom: 150px;
+    width: 330px;
+    background: rgba(30, 255, 0, 0.466);
+    color: rgb(4, 87, 18);
+    border-left: 2px solid rgb(18, 185, 40);
+    border-right: 2px solid rgb(18, 185, 40);
+    visibility: visible;
+    position: fixed;
+}
+
+.complete_reg {
     visibility: hidden;
     position: absolute;
 }
 
-.time {
+.complete_auth {
+    visibility: hidden;
+    position: absolute;
+}
+
+.codeTime {
     margin-top: 10px;
 }
 

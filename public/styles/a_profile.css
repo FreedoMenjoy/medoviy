@@ -1,9 +1,15 @@
 .con-block-hv {
     visibility: hidden;
+    width: 90%;
+    position: absolute;
 }
 
 .con-block-hv.active {
     visibility: visible;
+}
+
+.con-block-hv h1{
+    font-size: 25px;
 }
 
 .container4 {
@@ -72,10 +78,6 @@
     margin-bottom: 40px;
 }
 
-.con-block-hv {
-    width: 100%;
-}
-
 .category-info {
     margin: 0 auto;
     width: 95%; 
@@ -108,21 +110,114 @@
     margin-left: 2%;
     margin-top: 6px;
 }
-.modal-pa {
-    position: fixed;
-    top: 10%;
-    left: 20%;
-    width: 60%;
-    height: 80%;
-    border: 2px solid black;
-    background-color: rgb(244, 238, 238, 1);
-    z-index: 1;
-    transition: 0.3s ease;
+
+
+
+.personal-data {
+    width: 100%;
+    height: 200px;
+    box-shadow: 0px 0px 20px rgb(192, 192, 192);
+    border-radius: 10px;
+    margin: 30px auto;
 }
 
-.inputs-pa {
+.image-ul::after{
+    content : "x";
+}
+
+/* Базовые стили слоя затемнения и модального окна  */
+.overlay-goods {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+/* фон затемнения */
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed; /* фиксированное поцизионирование */
+    cursor: default; /* тип курсара */
+}
+/* активируем слой затемнения */
+.overlay-goods:target {
+    display: block;
+}
+/* стили модального окна */
+.block-goods-open {
+    top: -100%;
+    right: 0;
+    left: 50%;
+    font-size: 14px;
+    z-index: 20;
+    margin: 0;
+
+    width: 800px;
+    height: 780px;
+/* фиксированное позиционирование, окно стабильно при прокрутке */
+    position: fixed;
+    padding: 15px;
+/* внешняя тень */
+
+    -webkit-transform: translate(-50%, -500%);
+    -ms-transform: translate(-50%, -500%);
+    -o-transform: translate(-50%, -500%);
+    transform: translate(-50%, -500%);
+    -webkit-transition: -webkit-transform 0.6s ease-out;
+    -moz-transition: -moz-transform 0.6s ease-out;
+    -o-transition: -o-transform 0.6s ease-out;
+    transition: transform 0.6s ease-out;
+}
+/* активируем модальный блок */
+.overlay-goods:target+.block-goods-open {
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    top: 5%;
+}
+
+/* параграфы */
+.close-block1 {
+    font-weight: bold;
+    color: rgb(128, 5, 5);
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.close-block2 {
+    top: 12px;
+    right: 2px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    text-align: center;
+}
+
+.block-goods-open p {
+    margin: 0; padding: 5px 0
+}
+
+.container-goods {
+    width: 800px;
+    height: 780px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.container-goods h1 {
     margin-left: 40px;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+
+.form-goods {
+    margin-left: 40px;
+    margin-top: 30px;
     position: relative;
     height: 90%; 
     width: 90%; 
@@ -130,7 +225,33 @@
     flex-direction: column;
 }
 
+.form-goods.scroll2 {
+    overflow-y: scroll !important; 
+    max-height: 83%;
+    padding-right: 10px;
+}
+
+.scroll2::-webkit-scrollbar {
+    width: 2px;               /* ширина scrollbar */
+}
+
+.scroll2::-webkit-scrollbar-track {
+    background: rgba(216, 216, 216, 0);        /* цвет дорожки */
+}
+
+.scroll2::-webkit-scrollbar-thumb {
+    background-color: rgb(163, 163, 163);    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid rgba(216, 216, 216, 0);  /* padding вокруг плашки */
+}
+
+.necessarily::after{
+    content: '*';
+    color: red !important;
+}
+
 .input-pa {
+    margin-top: 8px;
     margin-bottom: 10px; 
 }
 
@@ -146,27 +267,6 @@
     height: 20px;
 }
 
-.close-pa{
-    color: #000000;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.close-pa:hover {
-    color: black;
-}
-
-.con-block-hv h1{
-    font-size: 25px;
-}
-
-.personal-data {
-    width: 100%;
-    height: 200px;
-    box-shadow: 0px 0px 20px rgb(192, 192, 192);
-    border-radius: 10px;
-    margin: 30px auto;
-}
+textarea {
+    resize: none; /* Запрещаем изменять размер */
+} 

@@ -7,8 +7,7 @@ const fs = require("fs")
 const crypto = require('crypto');
 const UserLogin = require("./logic/userLogin");
 const MongoClass  = require("./logic/mongoClass")
-const EmailRegister  = require("./logic/emailRegister")
-
+const EmailRegistration  = require("./logic/emailRegistration")
 const app = express();
 
 app.set("view engine", "ejs");
@@ -28,7 +27,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-
 const secretKey = crypto.randomBytes(32).toString('hex');
 
 app.use(
@@ -40,7 +38,7 @@ app.use(
 );
 
 function requireAuth(req, res, next) {
-    if (req.path != "/login"){
+    if (req.path != "/login") {
         if (!req.session.isAuthenticated) {
             req.session.userRole = 'guest';
         }
@@ -48,13 +46,28 @@ function requireAuth(req, res, next) {
         if (req.session.isAuthenticated || req.path === `/${req.session.userRole}`) {
             return next();
         } else {
-            res.redirect("/");
+            return res.redirect("/");
         }
     } else {
         return next();
     }
 }
 
+
+function logIn(req, res, userName, userPassword){
+  const userLogin = new UserLogin(userName, userPassword);
+  userLogin
+    .allCheck()
+    .then((check) => {
+      if (check[0] == true) {
+        req.session.isAuthenticated = true; // Система токенов!!!!!!!
+        req.session.userRole = check[1].role;
+        res.redirect(`/${check[1].role}`);
+      } else {
+        res.redirect("/");
+      }
+    })
+}
 
 app.get("/", (req, res) => {
     res.redirect(`/${req.session.userRole}`);
@@ -68,11 +81,11 @@ app.get("/:role", requireAuth, (req, res) => {
     res.render("index");
 });
 
-app.get("/:role/coop", (req, res) => {
+app.get("/:role/coop",  (req, res) => {
   res.render("coop");
 });
 
-app.get("/:role/terms", (req, res) => {
+app.get("/:role/terms",  (req, res) => {
   res.render("terms");
 });
 
@@ -113,18 +126,7 @@ app.get("/:role/market", async (req, res) => {
 app.post("/check_login", (req, res) => {
   const userPassword = req.body.password;
   const userName = req.body.username;
-  const userLogin = new UserLogin(userName, userPassword);
-  userLogin
-    .allCheck()
-    .then((check) => {
-      if (check[0] == true) {
-        req.session.isAuthenticated = true;
-        req.session.userRole = check[1].role;
-        res.redirect(`/${check[1].role}`);
-      } else {
-        res.redirect("/");
-      }
-    })
+  logIn(req, res, userName, userPassword)
 });
 
 app.post("/reg", upload.none(), async (req, res) => {
@@ -132,11 +134,12 @@ app.post("/reg", upload.none(), async (req, res) => {
   const userEmail = req.body.email;
   const userPassword = req.body.password;
 
-  const eReg = new EmailRegister(userName, userPassword, userEmail);
+  const eReg = new EmailRegistration(userName, userPassword, userEmail);
   try {
     const error = await eReg.checkData();
     if (error === null) {
-      req.session.email = userEmail;
+      req.session.email = userEmail; // Надо в будущем будет сделать систему аунтефикации по сеансам/токенам и тогда тут нахуй заменить это
+                                     // + тут будет скорее всего загрузка данных о сессии в дб, но пока что пользуемся этим
       res.status(200).json({success : true});
       eReg.sendCode();
     } else {
@@ -147,6 +150,26 @@ app.post("/reg", upload.none(), async (req, res) => {
     res.status(500).json({success : false});
   }
 });
+
+app.post("/reg_code_check", upload.none() , async (req, res) =>{
+  const code = req.body.code;
+  const email = req.session.email;
+
+  const eReg = new EmailRegistration(null, null, email);
+  const data = await eReg.checkCode(code);
+  if (data != null){
+    const mongoClass = new MongoClass();
+    mongoClass.addUser(userName = data["login"], 
+                       userPassword = data["password"], 
+                       userEmail = data["email"] )
+    await eReg.deleteEmailCodes()
+    req.session.isAuthenticated = true; // Система токенов!!!!!!!
+    req.session.userRole = "u";
+    res.status(200).json({success : true});
+  } else{
+    res.status(400).json({ message: "wrongCode" });
+  }
+})
 
 app.get('/:role/product_page/:id', async (req, res) => {
   const productId = req.params.id;

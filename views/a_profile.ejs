@@ -36,55 +36,6 @@
 <body>
     <%- include('blocks/header') -%>
     <%- include('blocks/upward') -%>
-    <div class="modal-pa" id="modal-pa">
-        <span class="close-pa" onclick="closePA()">&times;</span>
-        <form class = "inputs-pa" id = "products-form" method="post" enctype="multipart/form-data">
-            <label for="p_name">Имя продукта:</label>
-            <input class = "input-pa"  type="text" id = "p_name" name = "p_name" required>
-
-            <label class = "input-pa-label" for="p_price">Цена:</label>
-            <input class = "input-pa"  type="text" id = "p_price" name = "p_price" required>
-
-            <label class = "input-pa-label" for="p_description">Описание:</label>
-            <input class = "input-pa"  type="text" id = "p_description" name = "p_description" required>
-
-            <label class = "input-pa-label" for="p_categories">Категории:</label>
-            <input class = "input-pa"  type="text" id = "p_categories" name = "p_categories" required>
-
-            <label class = "input-pa-label"  for="p_compound">Состав:</label>
-            <input class = "input-pa"  type="text" id = "p_compound" name = "p_compound" required>
-
-            <label class = "input-pa-label" for="p_proteins">Белки(г):</label>
-            <input class = "input-pa"  type="text" id = "p_proteins" name = "p_proteins" required>
-
-            <label class = "input-pa-label" for="p_carbs">Углеводы(г):</label>
-            <input class = "input-pa"  type="text" id = "p_carbs" name = "p_carbs" required>
-
-            <label class = "input-pa-label" for="p_fats">Жиры(г):</label>
-            <input class = "input-pa"  type="text" id = "p_fats" name = "p_fats" required>
-
-            <label class = "input-pa-label" for="p_EValue">Энергетическая ценность:</label>
-            <input class = "input-pa"  type="text" id = "p_EValue" name = "p_EValue" required>
-
-            <label class = "input-pa-label" for="p_Suitability">Срок годности:</label>
-            <input class = "input-pa"  type="text" id = "p_Suitability" name = "p_suitability" required>
-
-            <label class = "input-pa-label" for="p_Mass">Масса нетто(г):</label>
-            <input class = "input-pa" type="text" id = "p_Mass" name = "p_mass" required>
-
-            <label class = "input-pa-label" for="p_photos">Фотографии:</label>
-            <input class = "input-pa" type="file" id = "p_photos" name = "p_photos" multiple accept=".jpg, .jpeg, .png">
-            <li id = "image-name-container">
-            </li>
-
-            <label class = "input-pa-label" for="p_goods">Полезные свойства:</label>
-            <input class = "input-pa"  type="text" id = "p_goods" name = "p_goods">
-
-            <label class = "input-pa-label" for="p_cooking">Способ приготовления:</label>
-            <input class = "input-pa"  type="text" id = "p_cooking" name = "p_cooking">
-        </form>
-        <button class = "submit-pa" onclick = "submitProductsForm()">Добавить</button>
-    </div>
     <div class="container4">
         <menu class="a_menu">
             <div class="buttons-menu">
@@ -203,9 +154,7 @@
                 </div>
                 <div id="con-block-goods" class="con-block-hv active">
                     <h1>Товары</h1>
-                    <button onclick="openPA()">
-                        Добавить
-                    </button>
+                    <%- include('blocks/a_profile/modal') -%>
                     <div class="category-info">
                         <img src="/product_photos/standartPhoto.png" alt="">
                         <div class="name">Название</div>

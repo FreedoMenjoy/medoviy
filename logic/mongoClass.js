@@ -56,9 +56,9 @@ class MongoHandler {
     });
   }
 
-  async addUser(username, userpassword, user_role, user_phone = null, user_data = null){
+  async addUser(user_name, user_password, user_email, user_role = "u", user_phone = null, user_data = null){
     await this.connect("users");
-    await this.insertData({id : await this.generateId(), name : username , password : userpassword, role : user_role, phone: user_phone, userdata : user_data});
+    await this.insertData({id : await this.generateId(), username : user_name , password : user_password,email : user_email ,role : user_role, phone: user_phone, userdata : user_data});
   }
 
   async addCategory(name, power, subcategories = null){
@@ -94,7 +94,7 @@ class MongoHandler {
     }
   }
 
-  async deleteData(query, collectionName) {
+  async deleteData(collectionName, query) {
     await this.connect(collectionName);
 
     try {

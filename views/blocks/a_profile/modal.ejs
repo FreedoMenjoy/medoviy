@@ -1,0 +1,58 @@
+<li class=""><a href="#add-goods">Добавить</a></li>
+<a href="#close-goods" class="overlay-goods" id="add-goods"></a>
+<div class="block-goods-open">
+    <div class="container-goods">
+        <h1>Добавить товар</h1>
+        <form class = "form-goods scroll2" id = "products-form" method="post" enctype="multipart/form-data">
+            <label class = "input-pa-label necessarily" for="p_name">Имя продукта:</label>
+            <p><textarea rows="10" cols="45" id = "p_name" name = "p_name" required maxlength="100"></textarea></p>
+    
+            <label class = "input-pa-label necessarily" for="p_price">Цена:</label>
+            <input class = "input-pa"  type="text" id = "p_price" name = "p_price" required>
+    
+            <label class = "input-pa-label necessarily" for="p_description">Описание:</label>
+            <p><textarea rows="10" cols="45" id = "p_description" name = "p_description" required maxlength="1500"></textarea></p>
+    
+            <label class = "input-pa-label necessarily" for="p_categories">Категории:</label>
+            <input class = "input-pa"  type="text" id = "p_categories" name = "p_categories" required>
+    
+            <label class = "input-pa-label necessarily"  for="p_compound">Состав:</label>
+            <p><textarea rows="10" cols="45" id = "p_compound" name = "p_compound" required maxlength="1500"></textarea></p>
+    
+            <label class = "input-pa-label necessarily" for="p_proteins">Белки(г):</label>
+            <input class = "input-pa"  type="text" id = "p_proteins" name = "p_proteins" required>
+    
+            <label class = "input-pa-label necessarily" for="p_carbs">Углеводы(г):</label>
+            <input class = "input-pa"  type="text" id = "p_carbs" name = "p_carbs" required>
+    
+            <label class = "input-pa-label necessarily" for="p_fats">Жиры(г):</label>
+            <input class = "input-pa"  type="text" id = "p_fats" name = "p_fats" required>
+    
+            <label class = "input-pa-label necessarily" for="p_EValue">Энергетическая ценность:</label>
+            <input class = "input-pa"  type="text" id = "p_EValue" name = "p_EValue" required>
+    
+            <label class = "input-pa-label necessarily" for="p_Suitability">Срок годности:</label>
+            <input class = "input-pa"  type="text" id = "p_Suitability" name = "p_suitability" required>
+    
+            <label class = "input-pa-label necessarily" for="p_Mass">Масса нетто(г):</label>
+            <input class = "input-pa" type="text" id = "p_Mass" name = "p_mass" required>
+    
+            <div class = "con-photo">
+                <label class = "input-pa-label" for="p_photos">Фотографии:</label>
+                <input class = "input-pa" type="file" id = "p_photos" name = "p_photos" multiple accept=".jpg, .jpeg, .png">
+            </div>
+    
+            <li id = "image-name-container">
+            </li>
+    
+            <label class = "input-pa-label" for="p_goods">Полезные свойства:</label>
+            <p><textarea rows="10" cols="45" id = "p_goods" name = "p_goods" maxlength="1500"></textarea></p>
+    
+            <label class = "input-pa-label" for="p_cooking">Способ приготовления:</label>
+            <p><textarea rows="10" cols="45" id = "p_cooking" name = "p_cooking" maxlength="1500"></textarea></p>
+
+            <button type="submit" class = "submit-pa">Добавить</button>
+        </form>
+        <div class="close-block2"><a class="close-block1" href="#close">X</a></div>
+    </div>
+</div>

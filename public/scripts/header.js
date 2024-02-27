@@ -89,7 +89,7 @@ function forgot() {
     logreg.style.left = "-400px";
     coderegs.style.left = "-400px";
     codeforgots.style.left = "-400px";
-    conreg.style.height = "400px"
+    conreg.style.height = "380px"
 }
 
 function codereg() {
@@ -99,7 +99,7 @@ function codereg() {
     logreg.style.left = "-400px";
     coderegs.style.left = "60px";
     codeforgots.style.left = "-400px";
-    conreg.style.height = "400px"
+    conreg.style.height = "380px"
 }
 
 function codeforgot() {
@@ -109,7 +109,7 @@ function codeforgot() {
     logreg.style.left = "-400px";
     coderegs.style.left = "-400px";
     codeforgots.style.left = "60px";
-    conreg.style.height = "400px"
+    conreg.style.height = "380px"
 }
 
 function back() {
@@ -126,28 +126,28 @@ function back() {
 const inputLogin = document.getElementById('passwordLogin');
 const checkBox = document.getElementById("checkboxs");
 
-function show_hide_password(checkbox) {
-if (inputLogin .getAttribute('type') === 'password') {
-inputLogin .setAttribute('type', 'text');
-checkBox.checked = true;
-} else {
-inputLogin .setAttribute('type', 'password');
-checkBox.checked = false;
-}
+function show_hide_password() {
+    if (inputLogin .getAttribute('type') === 'password') {
+        inputLogin .setAttribute('type', 'text');
+        checkBox.checked = true;
+    } else {
+        inputLogin .setAttribute('type', 'password');
+        checkBox.checked = false;
+    }
 }
 
 const input = document.getElementById('passwordReg');
 const input2 = document.getElementById('passwordRegCheck');
 const checkBox2 = document.getElementById("checkboxs2");
 
-function show_hide_password_req(checkbox) {
-if (input.getAttribute('type') === 'password') {
-    input.setAttribute('type', 'text');
-    input2.setAttribute('type', 'text');
-    checkBox2.checked = true;
-    } else {
-    input.setAttribute('type', 'password');
-    input2.setAttribute('type', 'password');
-    checkBox2.checked = false;
-    }
+function show_hide_password_req() {
+    if (input.getAttribute('type') === 'password') {
+            input.setAttribute('type', 'text');
+            input2.setAttribute('type', 'text');
+            checkBox2.checked = true;
+        } else {
+            input.setAttribute('type', 'password');
+            input2.setAttribute('type', 'password');
+            checkBox2.checked = false;
+        }
 } 
