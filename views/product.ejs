@@ -1,37 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="keywords" content="
-        медовыйпапа
-        медовый папа
-        honey
-        honey father 
-        сахар
-        мёд
-        Медовый
-        мед
-        натуральный 
-        свежий
-        новый 
-        качественный 
-        хороший 
-        вкусный 
-        дешевый 
-        мытищи 
-        лучший 
-        вкусный
-        приятный
-        подарок
-        сладость
-        детям
-        взрослым ">
-    <title>Медовый Папа</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <%- include('blocks/standartMeta') -%>
     <link rel="stylesheet" href="/styles/product.css" type="text/css">
-    <link rel="icon" href="/logo.png" type="image/x-icon">
 </head>
 <body>
     <%- include('blocks/header') -%>
@@ -39,13 +10,25 @@
     <div class="container-shop2">  
         <div class="con-shop">
             <div class="list-photo"> <!--Слайдер фотографий (бесконечное добавление фотографий (ограничение на 10)) как на вб https://www.wildberries.ru/catalog/13641482/detail.aspx-->
-                <div id="product-slider-container">
-                    <div class="enlarged-image" id="enlarged-image">
-    
+
+                <div class="product-slider-container">
+                    <div class = "product-pictures-container">
+                        <button class="change-img"><ion-icon name="chevron-up-outline"></ion-icon></button>
+                            <div class="product-slider" id="product-slider">
+                                <% productPhotos.forEach((photo, index) => { %>
+                                    <div class = "product-image-cover">
+                                        <img class="product-img" src="/product_photos/<%= photo %>" onmouseover="changeImage('<%= photo %>')">
+                                    </div>
+                                <% }); %>
+                            </div>
+                        <button class="change-img"><ion-icon name="chevron-down-outline"></ion-icon></button>
                     </div>
-    
-                </div> <!--Слайдер фотографий (Выборочное фото)-->
-            </div>
+                    <div class="enlarged-image" id="enlarged-image">
+                        <img src="/product_photos/<%= productPhotos[0] %>">
+                    </div>
+                </div>
+
+            </div> <!--Слайдер фотографий (Выборочное фото)-->
             <div class="goods-info">
                 <div class="path">
                     <p><%= productPath %></p> <!--Создание пути до товара (с рабочими переходами) https://woodmart.xtemos.com/shop/other/food/aliquet-rhoncus/-->
@@ -97,6 +80,7 @@
     </div>
 <script src="/scripts/slider-product.js"></script>
 <script src="/scripts/search.js"></script>
+<script src="/scripts/productImages.js"></script>
 <%- include('blocks/footer') -%>
 </body>
 </html>

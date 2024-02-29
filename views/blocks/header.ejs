@@ -45,11 +45,10 @@
                     </div>
 
                 
-                    <form method="post" action="/check_login" id="login-reg" class="form-reg ">
+                    <form method="post" action="/login" id="login-reg" class="form-reg ">
                         <input type="text" id="usernameLogin" name="username" class="input-filed-reg" autocomplete="off" placeholder="Логин" required >
                         <input type="password" id="passwordLogin" name="password" autocomplete="off" class="input-filed-reg" placeholder="Пароль" required >
                         <div class = "errorsLogin">
-                            <p class="wrong ">Неверный логин или пароль</p>
                         </div>
                         <input type="checkbox" class="check-box-reg c3 password-control" id="checkboxs" onclick="return show_hide_password(this);">
                         <button type="button" class="b-reg" onclick="forgot()">Забыли пароль?</button>
@@ -118,6 +117,7 @@
     <p class="complete_reg" >Успешная регистрация</p>   
     <script src="/scripts/search.js"></script>
     <script src="/scripts/header.js"></script>
+    <script src="/scripts/login.js"></script>
     <script src="/scripts/reg.js"></script>
     <script src="/scripts/regCode.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

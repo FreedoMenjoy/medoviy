@@ -128,8 +128,8 @@ const checkBox = document.getElementById("checkboxs");
 
 function show_hide_password() {
     if (inputLogin .getAttribute('type') === 'password') {
-        inputLogin .setAttribute('type', 'text');
-        checkBox.checked = true;
+    inputLogin .setAttribute('type', 'text');
+    checkBox.checked = true;
     } else {
         inputLogin .setAttribute('type', 'password');
         checkBox.checked = false;
